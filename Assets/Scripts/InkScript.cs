@@ -2,6 +2,7 @@
 using UnityEngine;
 using Ink.Runtime;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class InkScript : MonoBehaviour
 {
@@ -21,14 +22,17 @@ public class InkScript : MonoBehaviour
 
     private BackgroundManager backgrounds;
     private SpriteRenderer backgroundSprite;
-    private TextManager textManager;
+    [SerializeField]
+    private Text DialogText;
+    [SerializeField]
+    private Button[] ChoiceButtons;
+    private Text[] ChoiceTexts;
 
     public void Start ()
     {
         names = null;
 
-        backgrounds = GameObject.Find ("Game Manager").GetComponent<BackgroundManager> ();
-        textManager = GameObject.Find ("Game Manager").GetComponent<TextManager> ();
+        backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
 
         var backgroundGameObject = GameObject.Find ("Background");
         ;
@@ -41,9 +45,17 @@ public class InkScript : MonoBehaviour
         inkStory = new Story (InkAsset.text);
         progressStory = true;
         getNames ();
+
+        // get texts from buttons, so we don't have to keep finding them
+        ChoiceTexts = new Text[ChoiceButtons.Length];
+        for(int i = 0; i < ChoiceButtons.Length; ++i)
+        {
+            ChoiceTexts[i] = ChoiceButtons[i].GetComponentInChildren<Text>();
+        }
     }
 
-    public float DisplayText (string text, float offset)
+
+    public void DisplayText(string text)
     {
         var displayText = text;
         if (text.Contains (":") && names != null) {
@@ -62,9 +74,8 @@ public class InkScript : MonoBehaviour
         } else if (!string.IsNullOrEmpty (currentSpeaker)) {
             displayText = string.Format ("[{0}] {1}", currentSpeaker, text);
         }
-        offset = textManager.DisplayText (displayText, offset);
-        Debug.Log (displayText);
-        return offset;
+        DialogText.text = displayText;
+        Debug.Log(displayText);
     }
 
     public void Update ()
@@ -72,8 +83,7 @@ public class InkScript : MonoBehaviour
         if (!progressStory) {
             return;
         }
-
-        float offset = 0;
+        
 
         while (inkStory.canContinue) {
             var text = inkStory.Continue ();
@@ -91,15 +101,34 @@ public class InkScript : MonoBehaviour
                 continue;
 
             default:
-                offset = DisplayText (text, offset);
+                DisplayText (text);
                 break;
             }
         }
 
         // In here is where we'll want to show the buttons for choices and whatnot.
-        if (inkStory.currentChoices.Count > 0) {
-            offset = textManager.DisplayChoices (inkStory.currentChoices, offset);
+        if(ChoiceButtons.Length < inkStory.currentChoices.Count)
+        {
+            // too many choices or too few buttons!
+            Debug.LogError("Not enough buttons or too many choices! - did you add enough buttons? Choices: " + inkStory.currentChoices.Count + " Buttons: " + inkStory.currentChoices.Count);
         }
+
+        for (int i = 0; i < ChoiceButtons.Length; ++i)
+        {
+            if (i >= inkStory.currentChoices.Count)
+            {
+                ChoiceTexts[i].text = ""; // clear
+                ChoiceButtons[i].gameObject.active = false;
+                // get button and disable it
+
+            }
+            else
+            {
+                ChoiceTexts[i].text = inkStory.currentChoices[i].text;
+                ChoiceButtons[i].gameObject.active = true;
+            }
+        }
+
 
         progressStory = false; // TODO: When we make a choice, set progressStory to true.
     }
@@ -120,7 +149,7 @@ public class InkScript : MonoBehaviour
         inkStory.ChoosePathString (first_knot);
     }
 
-    public static void MakeChoice (int choice)
+    public void MakeChoice (int choice)
     {
         inkStory.ChooseChoiceIndex (choice);
         progressStory = true;
