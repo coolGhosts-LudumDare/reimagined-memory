@@ -7,6 +7,8 @@ public class InkScript : MonoBehaviour
 {
     public TextAsset InkAsset;
     private Story inkStory;
+    private const string names_knot = "names";
+    private const string first_knot = "story_start";
 
     private string[] names;
     private string currentSpeaker = string.Empty;
@@ -17,6 +19,7 @@ public class InkScript : MonoBehaviour
     public void Start()
     {
         names = null;
+        getNames();
     }
 
     public void Awake()
@@ -59,13 +62,6 @@ public class InkScript : MonoBehaviour
             var parts = text.Split(commandSeparator, 2);
             switch (parts[0])
             {
-                case "NAMES":
-                    names = parts[1].Split(',');
-                    for (var i = 0; i < names.Length; ++i)
-                    {
-                        names[i] = names[i].Replace("\n", "").Trim();
-                    }
-                    continue;
                 case "BACKGROUND":
                     Debug.LogError("Bacgkround command not yet implemented");
                     Debug.DebugBreak();
@@ -94,5 +90,22 @@ public class InkScript : MonoBehaviour
             }
         }
         
+    }
+
+    private void getNames() {
+        inkStory.ChoosePathString(names_knot);
+        if (inkStory.canContinue){
+            var text = inkStory.Continue();
+            var parts = text.Split(commandSeparator, 2);
+            if (parts[0] == "NAMES")
+            {
+                names = parts[1].Split(',');
+                for (var i = 0; i < names.Length; ++i)
+                {
+                    names[i] = names[i].Replace("\n", "").Trim();
+                }
+            }
+        }
+        inkStory.ChoosePathString(first_knot);
     }
 }
