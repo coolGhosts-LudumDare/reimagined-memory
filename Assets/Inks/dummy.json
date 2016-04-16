@@ -1,0 +1,1 @@
+﻿{"inkVersion":11,"root":[["^Hello, world!","\n",["ev","str","^Hello?","/str","/ev",{"*":".^.c","flg":20},{"c":["^Hi!","\n",{"#f":7}]}],["ev","str","^Ignore","/str","/ev",{"*":".^.c","flg":20},{"c":["^Please acknowledge me!","\n",{"#f":7}]}],null],"done",{"#f":3}]}
