@@ -155,7 +155,6 @@ GameObject:
   - 92: {fileID: 291035199}
   - 124: {fileID: 291035198}
   - 81: {fileID: 291035197}
-  - 114: {fileID: 291035202}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -230,24 +229,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &291035202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 291035196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17f37ce563dba94eb43790a41fecafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InkAsset: {fileID: 4900000, guid: fd5fd75604970c840865710f26450dd1, type: 3}
-  DialogText: {fileID: 977992238}
-  ChoiceButtons:
-  - {fileID: 796719929}
-  - {fileID: 792961574}
-  - {fileID: 938054515}
-  - {fileID: 1744476767}
 --- !u!1 &483982224
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +852,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1108506281}
   - 114: {fileID: 1108506280}
+  - 114: {fileID: 1108506282}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -911,6 +893,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1108506282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1108506279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17f37ce563dba94eb43790a41fecafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InkAsset: {fileID: 4900000, guid: 2cdd8f297cf50cc4fa73390e252e31e5, type: 3}
+  namesInkAsset: {fileID: 4900000, guid: 3a04c35011e91e346ba2f08be9e60feb, type: 3}
+  DialogText: {fileID: 977992238}
+  ChoiceButtons:
+  - {fileID: 796719929}
+  - {fileID: 792961574}
+  - {fileID: 938054515}
+  - {fileID: 1744476767}
 --- !u!1 &1119692024
 GameObject:
   m_ObjectHideFlags: 0

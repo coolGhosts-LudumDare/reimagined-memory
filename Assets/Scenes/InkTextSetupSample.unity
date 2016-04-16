@@ -155,7 +155,6 @@ GameObject:
   - 92: {fileID: 291035199}
   - 124: {fileID: 291035198}
   - 81: {fileID: 291035197}
-  - 114: {fileID: 291035202}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -230,24 +229,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &291035202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 291035196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d17f37ce563dba94eb43790a41fecafb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InkAsset: {fileID: 4900000, guid: 68b9e83359b6a804f92e3710766e16fb, type: 3}
-  DialogText: {fileID: 977992238}
-  ChoiceButtons:
-  - {fileID: 796719929}
-  - {fileID: 792961574}
-  - {fileID: 938054515}
-  - {fileID: 1744476767}
 --- !u!1 &483982224
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +874,13 @@ MonoBehaviour:
   Backgrounds:
   - {fileID: 21300000, guid: 28611839b55987a46a0c0e189917693d, type: 3}
   - {fileID: 21300000, guid: f88554bb4956e6149a451be5a4d22857, type: 3}
+  - {fileID: 21300000, guid: f14e2f17a8d67f74aa6a13d5c1bebf95, type: 3}
+  - {fileID: 21300000, guid: ac082331c60dfa94d973a90b514884eb, type: 3}
+  - {fileID: 21300000, guid: df442ec36994eea4d9aea04a934e5d5d, type: 3}
+  - {fileID: 21300000, guid: 076002ec008ae254388ae67c33f70d17, type: 3}
+  - {fileID: 21300000, guid: e641f8f660b93cf4a82d13d42f339677, type: 3}
+  - {fileID: 21300000, guid: 3866aa21c0cb2b446a4914504f742c84, type: 3}
+  - {fileID: 21300000, guid: bc86990204a16714cadf87b9d4f320af, type: 3}
 --- !u!4 &1108506281
 Transform:
   m_ObjectHideFlags: 0
@@ -913,9 +901,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108506279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a01c95d02db66304a8803d0a155467e8, type: 3}
+  m_Script: {fileID: 11500000, guid: d17f37ce563dba94eb43790a41fecafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InkAsset: {fileID: 4900000, guid: 68b9e83359b6a804f92e3710766e16fb, type: 3}
+  namesInkAsset: {fileID: 0}
+  DialogText: {fileID: 977992238}
+  ChoiceButtons:
+  - {fileID: 796719929}
+  - {fileID: 792961574}
+  - {fileID: 938054515}
+  - {fileID: 1744476767}
 --- !u!1 &1119692024
 GameObject:
   m_ObjectHideFlags: 0
