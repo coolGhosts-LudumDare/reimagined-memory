@@ -73,9 +73,9 @@ public class InkScript : MonoBehaviour
                     continue;
                 }
 
-                currentSpeaker = textParts [0];
+                currentSpeaker = textParts[0];
                 // TODO: Set displayText to textParts[1] once we have it all visual-like
-                displayText = string.Format ("[{0}]{1}", currentSpeaker, textParts [1]);
+                displayText = string.Format("[{0}]{1}", currentSpeaker, textParts[1]);
                 break;
             }
         }
