@@ -2,6 +2,7 @@
 using UnityEngine;
 using Ink.Runtime;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class InkScript : MonoBehaviour
 {
@@ -21,14 +22,19 @@ public class InkScript : MonoBehaviour
 
     private BackgroundManager backgrounds;
     private SpriteRenderer backgroundSprite;
-    private TextManager textManager;
+    [SerializeField]
+    private Text DialogText;
 
     public void Start ()
     {
         names = null;
 
+<<<<<<< HEAD
         backgrounds = GameObject.Find ("Game Manager").GetComponent<BackgroundManager> ();
         textManager = GameObject.Find ("Game Manager").GetComponent<TextManager> ();
+=======
+        backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
+>>>>>>> TextDialogstuff
 
         var backgroundGameObject = GameObject.Find ("Background");
         ;
@@ -43,7 +49,11 @@ public class InkScript : MonoBehaviour
         getNames ();
     }
 
+<<<<<<< HEAD
     public float DisplayText (string text, float offset)
+=======
+    public void DisplayText(string text)
+>>>>>>> TextDialogstuff
     {
         var displayText = text;
         if (text.Contains (":") && names != null) {
@@ -62,9 +72,8 @@ public class InkScript : MonoBehaviour
         } else if (!string.IsNullOrEmpty (currentSpeaker)) {
             displayText = string.Format ("[{0}] {1}", currentSpeaker, text);
         }
-        offset = textManager.DisplayText (displayText, offset);
-        Debug.Log (displayText);
-        return offset;
+        DialogText.text = displayText;
+        Debug.Log(displayText);
     }
 
     public void Update ()
@@ -91,7 +100,7 @@ public class InkScript : MonoBehaviour
                 continue;
 
             default:
-                offset = DisplayText (text, offset);
+                offset = DisplayText (text);
                 break;
             }
         }
