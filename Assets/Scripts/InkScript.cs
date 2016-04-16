@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Security.Policy;
 using UnityEngine;
 using Ink.Runtime;
+using UnityEditor;
 
 public class InkScript : MonoBehaviour
 {
     public TextAsset InkAsset;
     private Story inkStory;
+
     private const string names_knot = "names";
     private const string first_knot = "story_start";
 
@@ -16,15 +17,25 @@ public class InkScript : MonoBehaviour
     private char[] commandSeparator = { ' ' };
     private char[] nameSeparator = { ':' };
 
+    private bool progressStory;
+
+    private BackgroundManager backgrounds;
+    private SpriteRenderer backgroundSprite;
+
     public void Start()
     {
         names = null;
-        getNames();
+
+        backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
+
+        var backgroundGameObject = GameObject.Find("Background");;
+        backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer>();
     }
 
     public void Awake()
     {
         inkStory = new Story(InkAsset.text);
+        getNames();
     }
 
     public void DisplayText(string text)
@@ -42,6 +53,7 @@ public class InkScript : MonoBehaviour
                 }
 
                 currentSpeaker = textParts[0];
+                // TODO: Set displayText to textParts[1] once we have it all visual-like
                 displayText = string.Format("[{0}]{1}", currentSpeaker, textParts[1]);
                 break;
             }
@@ -56,16 +68,29 @@ public class InkScript : MonoBehaviour
 
     public void Update()
     {
+        if (!progressStory)
+        {
+            return;
+        }
+
         while (inkStory.canContinue)
         {
             var text = inkStory.Continue();
             var parts = text.Split(commandSeparator, 2);
+
             switch (parts[0])
             {
                 case "BACKGROUND":
-                    Debug.LogError("Bacgkround command not yet implemented");
-                    Debug.DebugBreak();
+                    var bgName = parts[1].Replace("\n", "");
+                    var sprite = backgrounds.GetImage(bgName);
+                    if (sprite == null)
+                    {
+                        Debug.LogErrorFormat("'{0}' is not a valid background image.");
+                        Debug.DebugBreak();
+                    }
+                    backgroundSprite.sprite = sprite;
                     continue;
+
                 default:
                     DisplayText(text);
                     break;
@@ -75,21 +100,25 @@ public class InkScript : MonoBehaviour
         if (inkStory.currentChoices.Count > 0)
         {
             inkStory.ChooseChoiceIndex(0);
+            EditorApplication.isPaused = true; // To be removed once we get dialogue showing on screen.
         }
 
-        // Let's not do this for now
-        if (false)
+        if (true)
         {
-            if (inkStory.currentChoices.Count > 0)
+            return;
+        }
+
+        // In here is where we'll want to show the buttons for choices and whatnot.
+        if (inkStory.currentChoices.Count > 0)
+        {
+            for (int i = 0; i < inkStory.currentChoices.Count; ++i)
             {
-                for (int i = 0; i < inkStory.currentChoices.Count; ++i)
-                {
-                    Choice choice = inkStory.currentChoices[i];
-                    Debug.Log("Choice " + (i + 1) + ". " + choice.text);
-                }
+                Choice choice = inkStory.currentChoices[i];
+                Debug.Log("Choice " + (i + 1) + ". " + choice.text);
             }
         }
-        
+
+        progressStory = false; // TODO: When we make a choice, set progressStory to true.
     }
 
     private void getNames() {

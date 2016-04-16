@@ -1,0 +1,1 @@
+﻿{"inkVersion":11,"root":[{"->":"story_start"},"done",{"story_start":[["^BACKGROUND meadow","\n","^Ah, what a nice day.","\n",["ev","str","^Go to uni","/str","/ev",{"*":".^.c","flg":20},{"c":["^BACKGROUND uni","\n","^Welp, time to study, I guess","\n","done",{"#f":7}]}],null],{"#f":3}],"names":[[{"->":"story_start"},null],{"#f":3}],"#f":3}]}
