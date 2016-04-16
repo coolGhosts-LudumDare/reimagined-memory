@@ -32,7 +32,6 @@ public class InkScript : MonoBehaviour
 
         var backgroundGameObject = GameObject.Find("Background");;
         backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer>();
-        progressStory = true;
     }
 
     public void Awake()
