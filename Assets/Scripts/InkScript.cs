@@ -22,7 +22,8 @@ public class InkScript : MonoBehaviour
 
     private static bool progressStory;
 
-    private BackgroundManager backgrounds;
+    private Sprite[] backgrounds;
+    
     private SpriteRenderer backgroundSprite;
     [SerializeField]
     private Text DialogText;
@@ -32,10 +33,9 @@ public class InkScript : MonoBehaviour
 
     public void Start ()
     {
-        backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
+        backgrounds = Resources.LoadAll<Sprite>("Backgrounds");
 
         var backgroundGameObject = GameObject.Find ("Background");
-        
         backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer> ();
     }
 
@@ -57,28 +57,48 @@ public class InkScript : MonoBehaviour
         }
     }
 
-
     public void DisplayText(string text)
     {
         var displayText = text;
-        if (text.Contains (":") && names != null) {
-            var textParts = text.Split (nameSeparator, 2);
-            var lineName = textParts [0];
-            foreach (var name in names) {
-                if (lineName != name) {
+        if (text.Contains(":") && names != null)
+        {
+            var textParts = text.Split(nameSeparator, 2);
+            var lineName = textParts[0];
+            foreach (var name in names)
+            {
+                if (lineName != name)
+                {
                     continue;
                 }
 
-                currentSpeaker = textParts [0];
+                currentSpeaker = textParts[0];
                 // TODO: Set displayText to textParts[1] once we have it all visual-like
-                displayText = string.Format ("[{0}]{1}", currentSpeaker, textParts [1]);
+                displayText = string.Format("[{0}]{1}", currentSpeaker, textParts[1]);
                 break;
             }
-        } else if (!string.IsNullOrEmpty (currentSpeaker)) {
-            displayText = string.Format ("[{0}] {1}", currentSpeaker, text);
+        }
+        else if (!string.IsNullOrEmpty(currentSpeaker))
+        {
+            displayText = string.Format("[{0}] {1}", currentSpeaker, text);
         }
         DialogText.text = displayText;
         Debug.Log(displayText);
+    }
+
+    private Sprite GetBackground(string bgName)
+    {
+        Sprite texture = null;
+
+        foreach (var t in backgrounds)
+        {
+            if (t.name == bgName)
+            {
+                texture = t;
+                break;
+            }
+        }
+
+        return texture;
     }
 
     public void Update ()
@@ -94,7 +114,7 @@ public class InkScript : MonoBehaviour
             switch (parts [0]) {
             case "BACKGROUND":
                 var bgName = parts [1].Replace ("\n", "");
-                var sprite = backgrounds.GetImage (bgName);
+                var sprite = GetBackground(bgName);
                 if (sprite == null) {
                     Debug.LogErrorFormat ("'{0}' is not a valid background image.", bgName);
                     Debug.DebugBreak ();

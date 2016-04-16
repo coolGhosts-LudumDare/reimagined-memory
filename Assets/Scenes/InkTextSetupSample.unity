@@ -851,7 +851,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1108506281}
-  - 114: {fileID: 1108506280}
   - 114: {fileID: 1108506282}
   m_Layer: 0
   m_Name: Game Manager
@@ -860,27 +859,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1108506280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1108506279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189b53cbb8e580b43a9b962084ec629a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Backgrounds:
-  - {fileID: 21300000, guid: 28611839b55987a46a0c0e189917693d, type: 3}
-  - {fileID: 21300000, guid: f88554bb4956e6149a451be5a4d22857, type: 3}
-  - {fileID: 21300000, guid: f14e2f17a8d67f74aa6a13d5c1bebf95, type: 3}
-  - {fileID: 21300000, guid: ac082331c60dfa94d973a90b514884eb, type: 3}
-  - {fileID: 21300000, guid: df442ec36994eea4d9aea04a934e5d5d, type: 3}
-  - {fileID: 21300000, guid: 076002ec008ae254388ae67c33f70d17, type: 3}
-  - {fileID: 21300000, guid: e641f8f660b93cf4a82d13d42f339677, type: 3}
-  - {fileID: 21300000, guid: 3866aa21c0cb2b446a4914504f742c84, type: 3}
-  - {fileID: 21300000, guid: bc86990204a16714cadf87b9d4f320af, type: 3}
 --- !u!4 &1108506281
 Transform:
   m_ObjectHideFlags: 0
@@ -905,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InkAsset: {fileID: 4900000, guid: 68b9e83359b6a804f92e3710766e16fb, type: 3}
-  namesInkAsset: {fileID: 0}
+  namesInkAsset: {fileID: 4900000, guid: 3a04c35011e91e346ba2f08be9e60feb, type: 3}
   DialogText: {fileID: 977992238}
   ChoiceButtons:
   - {fileID: 796719929}
