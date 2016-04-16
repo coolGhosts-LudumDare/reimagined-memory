@@ -104,8 +104,7 @@ public class InkScript : MonoBehaviour
         {
             ContinueStory();
         }
-
-        // In here is where we'll want to show the buttons for choices and whatnot.
+        
         if(ChoiceButtons.Length < inkStory.currentChoices.Count)
         {
             // too many choices or too few buttons!
@@ -117,16 +116,16 @@ public class InkScript : MonoBehaviour
             if (i >= inkStory.currentChoices.Count)
             {
                 ChoiceTexts[i].text = ""; // clear
-                ChoiceButtons[i].gameObject.active = false;
+                ChoiceButtons[i].gameObject.SetActive(false);;
             }
             else
             {
                 ChoiceTexts[i].text = inkStory.currentChoices[i].text;
-                ChoiceButtons[i].gameObject.active = true;
+                ChoiceButtons[i].gameObject.SetActive(true);
             }
         }
 
-        progressStory = false; // TODO: When we make a choice, set progressStory to true.
+        progressStory = false;
     }
 
     private void getNames ()
@@ -164,6 +163,7 @@ public class InkScript : MonoBehaviour
                 Debug.DebugBreak();
             }
             backgroundSprite.sprite = sprite;
+            text = inkStory.Continue();
         }
 
         DisplayText(text);
