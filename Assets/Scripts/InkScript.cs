@@ -164,6 +164,7 @@ public class InkScript : MonoBehaviour
                 Debug.DebugBreak();
             }
             backgroundSprite.sprite = sprite;
+            text = inkStory.Continue();
         }
 
         DisplayText(text);
