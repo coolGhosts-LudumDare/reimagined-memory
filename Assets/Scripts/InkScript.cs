@@ -2,6 +2,7 @@
 using UnityEngine;
 using Ink.Runtime;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class InkScript : MonoBehaviour
 {
@@ -21,14 +22,14 @@ public class InkScript : MonoBehaviour
 
     private BackgroundManager backgrounds;
     private SpriteRenderer backgroundSprite;
-    private TextManager textManager;
+    [SerializeField]
+    private Text DialogText;
 
     public void Start()
     {
         names = null;
 
         backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
-        textManager = GameObject.Find("Game Manager").GetComponent<TextManager>();
 
         var backgroundGameObject = GameObject.Find("Background");;
         backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer>();
@@ -42,7 +43,7 @@ public class InkScript : MonoBehaviour
         getNames();
     }
 
-    public float DisplayText(string text, float offset)
+    public void DisplayText(string text)
     {
         var displayText = text;
         if (text.Contains(":") && names != null)
@@ -66,9 +67,8 @@ public class InkScript : MonoBehaviour
         {
             displayText = string.Format("[{0}] {1}", currentSpeaker, text);
         }
-        offset = textManager.DisplayText(displayText, offset);
+        DialogText.text = displayText;
         Debug.Log(displayText);
-        return offset;
     }
 
     public void Update()
@@ -80,7 +80,6 @@ public class InkScript : MonoBehaviour
 
         while (inkStory.canContinue)
         {
-            float offset = 0;
             var text = inkStory.Continue();
             var parts = text.Split(commandSeparator, 2);
 
@@ -98,7 +97,7 @@ public class InkScript : MonoBehaviour
                     continue;
 
                 default:
-                    offset = DisplayText(text, offset);
+                    DisplayText(text);
                     break;
             }
         }
@@ -108,23 +107,6 @@ public class InkScript : MonoBehaviour
             inkStory.ChooseChoiceIndex(0);
             EditorApplication.isPaused = true; // To be removed once we get dialogue showing on screen.
         }
-
-        if (true)
-        {
-            return;
-        }
-
-        // In here is where we'll want to show the buttons for choices and whatnot.
-        if (inkStory.currentChoices.Count > 0)
-        {
-            for (int i = 0; i < inkStory.currentChoices.Count; ++i)
-            {
-                Choice choice = inkStory.currentChoices[i];
-                Debug.Log("Choice " + (i + 1) + ". " + choice.text);
-            }
-        }
-
-        progressStory = false; // TODO: When we make a choice, set progressStory to true.
     }
 
     private void getNames() {
