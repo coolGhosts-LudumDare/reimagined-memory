@@ -52,6 +52,8 @@ public class InkScript : MonoBehaviour
         for(int i = 0; i < ChoiceButtons.Length; ++i)
         {
             ChoiceTexts[i] = ChoiceButtons[i].GetComponentInChildren<Text>();
+            int captureCopy = i;
+            ChoiceButtons[i].onClick.AddListener(() => MakeChoice(captureCopy));
         }
     }
 

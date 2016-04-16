@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17f37ce563dba94eb43790a41fecafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InkAsset: {fileID: 4900000, guid: fd5fd75604970c840865710f26450dd1, type: 3}
+  InkAsset: {fileID: 4900000, guid: 68b9e83359b6a804f92e3710766e16fb, type: 3}
   DialogText: {fileID: 977992238}
   ChoiceButtons:
   - {fileID: 796719929}
