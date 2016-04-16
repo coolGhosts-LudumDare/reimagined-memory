@@ -834,7 +834,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Story text
+  m_Text: 'Click to start
 
 '
 --- !u!222 &977992239
@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InkAsset: {fileID: 4900000, guid: 68b9e83359b6a804f92e3710766e16fb, type: 3}
-  namesInkAsset: {fileID: 0}
+  namesInkAsset: {fileID: 4900000, guid: 2cdd8f297cf50cc4fa73390e252e31e5, type: 3}
   DialogText: {fileID: 977992238}
   ChoiceButtons:
   - {fileID: 796719929}

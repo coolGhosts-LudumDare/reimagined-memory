@@ -83,29 +83,9 @@ public class InkScript : MonoBehaviour
 
     public void Update ()
     {
-        if (!progressStory) {
-            return;
-        }
-
-        while (inkStory.canContinue) {
-            var text = inkStory.Continue ();
-            var parts = text.Split (commandSeparator, 2);
-
-            switch (parts [0]) {
-            case "BACKGROUND":
-                var bgName = parts [1].Replace ("\n", "");
-                var sprite = backgrounds.GetImage (bgName);
-                if (sprite == null) {
-                    Debug.LogErrorFormat ("'{0}' is not a valid background image.", bgName);
-                    Debug.DebugBreak ();
-                }
-                backgroundSprite.sprite = sprite;
-                continue;
-
-            default:
-                DisplayText (text);
-                break;
-            }
+        if ((Input.anyKeyDown) && inkStory.canContinue)
+        {
+            ContinueStory();
         }
 
         // In here is where we'll want to show the buttons for choices and whatnot.
@@ -149,8 +129,26 @@ public class InkScript : MonoBehaviour
     public void MakeChoice (int choice)
     {
         inkStory.ChooseChoiceIndex (choice);
-        progressStory = true;
+        ContinueStory();
     }
 
+    public void ContinueStory()
+    {
+        var text = inkStory.Continue();
+        var parts = text.Split(commandSeparator, 2);
 
+        if (parts[0] == "BACKGROUND")
+        {
+            var bgName = parts[1].Replace("\n", "");
+            var sprite = backgrounds.GetImage(bgName);
+            if (sprite == null)
+            {
+                Debug.LogErrorFormat("'{0}' is not a valid background image.", bgName);
+                Debug.DebugBreak();
+            }
+            backgroundSprite.sprite = sprite;
+        }
+
+        DisplayText(text);
+    }
 }
