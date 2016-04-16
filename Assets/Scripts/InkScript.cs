@@ -35,6 +35,7 @@ public class InkScript : MonoBehaviour
     public void Awake()
     {
         inkStory = new Story(InkAsset.text);
+        progressStory = true;
         getNames();
     }
 
