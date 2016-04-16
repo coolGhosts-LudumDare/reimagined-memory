@@ -20,8 +20,7 @@ public class InkScript : MonoBehaviour
     private char[] commandSeparator = { ' ' };
     private char[] nameSeparator = { ':' };
 
-    private static bool progressStory;
-
+   
     private Sprite[] backgrounds;
     
     private SpriteRenderer backgroundSprite;
@@ -46,7 +45,7 @@ public class InkScript : MonoBehaviour
         getNames();
 
         inkStory = new Story (InkAsset.text);
-        progressStory = true;
+        
 
         // get texts from buttons, so we don't have to keep finding them
         ChoiceTexts = new Text[ChoiceButtons.Length];
@@ -105,13 +104,13 @@ public class InkScript : MonoBehaviour
 
     public void Update ()
     {
-        if ((Input.anyKeyDown) && inkStory.canContinue)
+        if (Input.anyKeyDown && inkStory.canContinue)
         {
             ContinueStory();
         }
 
         // In here is where we'll want to show the buttons for choices and whatnot.
-        if(ChoiceButtons.Length < inkStory.currentChoices.Count)
+        if (ChoiceButtons.Length < inkStory.currentChoices.Count)
         {
             // too many choices or too few buttons!
             Debug.LogError("Not enough buttons or too many choices! - did you add enough buttons? Choices: " + inkStory.currentChoices.Count + " Buttons: " + inkStory.currentChoices.Count);
@@ -130,8 +129,7 @@ public class InkScript : MonoBehaviour
                 ChoiceButtons[i].gameObject.active = true;
             }
         }
-
-        progressStory = false; // TODO: When we make a choice, set progressStory to true.
+      
     }
 
     private void getNames ()
@@ -160,7 +158,7 @@ public class InkScript : MonoBehaviour
         var parts = text.Split(commandSeparator, 2);
 
         if (parts[0] == "BACKGROUND")
-        {
+        { 
             var bgName = parts[1].Replace("\n", "");
             var sprite = GetBackground(bgName);
             if (sprite == null)
