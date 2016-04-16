@@ -361,6 +361,8 @@ MonoBehaviour:
   elementPadding: 5
   buttonPrefab: {fileID: 11455522, guid: 10f6c7a6b8d04a34db8f6d489ada8fcf, type: 2}
   textPrefab: {fileID: 11491184, guid: 2b0ecc3f1e9120747853700ec8158e9d, type: 2}
+  currentTexts: []
+  currentChoices: []
 --- !u!1 &1863875143
 GameObject:
   m_ObjectHideFlags: 0
