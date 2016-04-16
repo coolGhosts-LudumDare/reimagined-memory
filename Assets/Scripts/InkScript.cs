@@ -21,15 +21,18 @@ public class InkScript : MonoBehaviour
 
     private BackgroundManager backgrounds;
     private SpriteRenderer backgroundSprite;
+    private TextManager textManager;
 
     public void Start()
     {
         names = null;
 
         backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
+        textManager = GameObject.Find("Game Manager").GetComponent<TextManager>();
 
         var backgroundGameObject = GameObject.Find("Background");;
         backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer>();
+        progressStory = true;
     }
 
     public void Awake()
@@ -39,7 +42,7 @@ public class InkScript : MonoBehaviour
         getNames();
     }
 
-    public void DisplayText(string text)
+    public float DisplayText(string text, float offset)
     {
         var displayText = text;
         if (text.Contains(":") && names != null)
@@ -63,8 +66,9 @@ public class InkScript : MonoBehaviour
         {
             displayText = string.Format("[{0}] {1}", currentSpeaker, text);
         }
-
+        offset = textManager.DisplayText(displayText, offset);
         Debug.Log(displayText);
+        return offset;
     }
 
     public void Update()
@@ -76,6 +80,7 @@ public class InkScript : MonoBehaviour
 
         while (inkStory.canContinue)
         {
+            float offset = 0;
             var text = inkStory.Continue();
             var parts = text.Split(commandSeparator, 2);
 
@@ -93,7 +98,7 @@ public class InkScript : MonoBehaviour
                     continue;
 
                 default:
-                    DisplayText(text);
+                    offset = DisplayText(text, offset);
                     break;
             }
         }
