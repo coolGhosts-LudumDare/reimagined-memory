@@ -121,12 +121,12 @@ public class InkScript : MonoBehaviour
             if (i >= inkStory.currentChoices.Count)
             {
                 ChoiceTexts[i].text = ""; // clear
-                ChoiceButtons[i].gameObject.active = false;
+                ChoiceButtons[i].gameObject.SetActive(false);
             }
             else
             {
                 ChoiceTexts[i].text = inkStory.currentChoices[i].text;
-                ChoiceButtons[i].gameObject.active = true;
+                ChoiceButtons[i].gameObject.SetActive(true);
             }
         }
       
