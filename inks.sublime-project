@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "Assets/Inks/",
+            "file_exclude_patterns": ["*.meta", "*.json"]
+		}
+	]
+}

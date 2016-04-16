@@ -51,14 +51,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "dummy.ink",
-			"settings":
-			{
-				"buffer_size": 74,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -460,37 +452,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "dummy.ink",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 74,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								74,
-								74
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/InkSyntax/ink.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -530,7 +493,7 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "dummy.sublime-project",
+	"project": "inks.sublime-project",
 	"replace":
 	{
 		"height": 56.0
