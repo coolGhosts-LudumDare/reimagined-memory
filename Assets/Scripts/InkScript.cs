@@ -32,8 +32,6 @@ public class InkScript : MonoBehaviour
 
     public void Start ()
     {
-        names = null;
-
         backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
 
         var backgroundGameObject = GameObject.Find ("Background");
@@ -86,7 +84,6 @@ public class InkScript : MonoBehaviour
         if (!progressStory) {
             return;
         }
-        
 
         while (inkStory.canContinue) {
             var text = inkStory.Continue ();
