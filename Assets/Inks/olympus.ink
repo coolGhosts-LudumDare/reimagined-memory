@@ -1,4 +1,4 @@
-=== mt_olympus ===
+=== story_start ===
 
 = throne
 BACKGROUND olympus

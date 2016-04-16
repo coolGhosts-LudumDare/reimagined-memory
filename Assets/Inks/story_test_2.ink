@@ -54,8 +54,3 @@ Zeus: Oh honey, you ruined my surprise, I was getting you this white cow!
 Hera: Really? Let's take it home!
 To be continued
 -> END
-
-
-=== names ===
-NAMES Zeus, Hera, Io, Zeus-as-cloud
--> story_start

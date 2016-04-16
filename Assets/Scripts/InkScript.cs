@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class InkScript : MonoBehaviour
 {
     public TextAsset InkAsset;
+    [SerializeField]
+    private TextAsset namesInkAsset;
     private static Story inkStory;
 
     private const string names_knot = "names";
@@ -35,16 +37,17 @@ public class InkScript : MonoBehaviour
         backgrounds = GameObject.Find("Game Manager").GetComponent<BackgroundManager>();
 
         var backgroundGameObject = GameObject.Find ("Background");
-        ;
+        
         backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer> ();
-        progressStory = true;
     }
 
     public void Awake ()
     {
+        inkStory = new Story(namesInkAsset.text);
+        getNames();
+
         inkStory = new Story (InkAsset.text);
         progressStory = true;
-        getNames ();
 
         // get texts from buttons, so we don't have to keep finding them
         ChoiceTexts = new Text[ChoiceButtons.Length];
@@ -94,7 +97,7 @@ public class InkScript : MonoBehaviour
                 var bgName = parts [1].Replace ("\n", "");
                 var sprite = backgrounds.GetImage (bgName);
                 if (sprite == null) {
-                    Debug.LogErrorFormat ("'{0}' is not a valid background image.");
+                    Debug.LogErrorFormat ("'{0}' is not a valid background image.", bgName);
                     Debug.DebugBreak ();
                 }
                 backgroundSprite.sprite = sprite;
@@ -119,8 +122,6 @@ public class InkScript : MonoBehaviour
             {
                 ChoiceTexts[i].text = ""; // clear
                 ChoiceButtons[i].gameObject.active = false;
-                // get button and disable it
-
             }
             else
             {
@@ -129,13 +130,11 @@ public class InkScript : MonoBehaviour
             }
         }
 
-
         progressStory = false; // TODO: When we make a choice, set progressStory to true.
     }
 
     private void getNames ()
     {
-        inkStory.ChoosePathString (names_knot);
         if (inkStory.canContinue) {
             var text = inkStory.Continue ();
             var parts = text.Split (commandSeparator, 2);
@@ -146,7 +145,6 @@ public class InkScript : MonoBehaviour
                 }
             }
         }
-        inkStory.ChoosePathString (first_knot);
     }
 
     public void MakeChoice (int choice)

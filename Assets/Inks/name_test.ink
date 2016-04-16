@@ -7,7 +7,3 @@ Please acknowledge me!
 *   [(Ignore Zeus)]
     Zeus: :(
     -> DONE
-
-=== names ===
-NAMES Zeus, Hera
--> story_start

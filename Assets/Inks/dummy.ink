@@ -1,4 +1,4 @@
-=== top_knot ===
+=== story_start ===
 Hello, world!
 *   [Hello?]
     Hi! -> END
