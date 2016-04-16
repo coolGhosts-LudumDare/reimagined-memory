@@ -164,7 +164,13 @@ public class InkScript : MonoBehaviour
                 Debug.DebugBreak();
             }
             backgroundSprite.sprite = sprite;
-            text = inkStory.Continue();
+            if (inkStory.canContinue)
+            {
+                text = inkStory.Continue();                
+            } else {
+                return;
+            }
+
         }
 
         DisplayText(text);
