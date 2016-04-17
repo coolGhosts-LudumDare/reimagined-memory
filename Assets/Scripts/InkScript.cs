@@ -26,37 +26,40 @@ public class InkScript : MonoBehaviour
     private Text namePanelText;
     [SerializeField]
     private Text DialogText;
-    [SerializeField]
     private Button[] ChoiceButtons;
     private Text[] ChoiceTexts;
 
-    public void Start ()
-    {
-        backgrounds = Resources.LoadAll<Sprite>("Backgrounds");
-
-        var backgroundGameObject = GameObject.Find ("Background");
-        backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer> ();
-
-        namePanel = GameObject.Find("Name");
-        namePanelText = namePanel.GetComponentInChildren<Text>();
-        namePanel.SetActive(false);
-    }
-
     public void Awake ()
     {
-        inkStory = new Story(namesInkAsset.text);
-        getNames();
+        if (backgrounds == null)
+        {
+            backgrounds = Resources.LoadAll<Sprite>("Backgrounds");
 
-        inkStory = new Story (InkAsset.text);
+            var backgroundGameObject = GameObject.Find("Background");
+            backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer>();
+        }
+
+        if (names == null)
+        {
+            inkStory = new Story(namesInkAsset.text);
+            getNames();
+
+            namePanel = GameObject.Find("Name");
+            namePanelText = namePanel.GetComponentInChildren<Text>();
+            namePanel.SetActive(false);
+
+            inkStory = null;
+        }
+
+        if (inkStory == null)
+        {
+            inkStory = new Story (InkAsset.text);
+        }
 
         // get texts from buttons, so we don't have to keep finding them
-        ChoiceTexts = new Text[ChoiceButtons.Length];
-        for(int i = 0; i < ChoiceButtons.Length; ++i)
-        {
-            ChoiceTexts[i] = ChoiceButtons[i].GetComponentInChildren<Text>();
-            int captureCopy = i;
-            ChoiceButtons[i].onClick.AddListener(() => MakeChoice(captureCopy));
-        }
+        var choiceContainer = GameObject.Find("Choices");
+        ChoiceButtons = choiceContainer.GetComponentsInChildren<Button>();
+        ChoiceTexts = choiceContainer.GetComponentsInChildren<Text>();
     }
 
     private float MeasureStringWidth(Text text, string str)
