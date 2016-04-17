@@ -83,6 +83,12 @@ public class InkScript : MonoBehaviour
             rightCharacterSprite = rightSprite.GetComponent<SpriteRenderer>();
         }
 
+        if (musicSource == null || effectSource == null)
+        {
+            musicSource = GameObject.Find("Music").GetComponent<AudioSource>();
+            effectSource = GameObject.Find("Sound").GetComponent<AudioSource>();
+        }
+
         var choiceContainer = GameObject.Find("Choices");
         choiceButtons = choiceContainer.GetComponentsInChildren<Button>();
         choiceTexts = choiceContainer.GetComponentsInChildren<Text>();
@@ -259,10 +265,11 @@ public class InkScript : MonoBehaviour
                 if (sprite == null)
                 {
                     Debug.LogErrorFormat("'{0}' is not a valid background image.", bgName);
-                    Debug.DebugBreak();
                 }
-
-                backgroundSprite.sprite = sprite;
+                else
+                {
+                    backgroundSprite.sprite = sprite;
+                }
 
                 processedCommand = true;
             }
@@ -283,10 +290,58 @@ public class InkScript : MonoBehaviour
             {
                 // Play/stop music
                 // MUSIC [filename|stop]
+
+                var filename = parts[1].Trim();
+
+                if (filename.ToLower() == "stop")
+                {
+                    musicSource.Stop();
+                }
+                else
+                {
+                    if (musicSource.clip == null ||
+                        musicSource.clip.name != filename)
+                    {
+                        musicSource.clip = Resources.Load<AudioClip>("Music/" + filename);
+                        if (musicSource.clip == null)
+                        {
+                            Debug.LogErrorFormat("Couldn't play music '{0}'.", filename);
+                        }
+                    }
+                    else
+                    {
+                        musicSource.Play();
+                    }
+                }
+
+                processedCommand = true;
             }
             else if (parts[0] == "SOUND")
             {
                 // Play a sound
+                // SOUND [filename]
+
+                var filename = parts[1].Trim();
+
+                if (effectSource.clip != null &&
+                    effectSource.clip.name == filename)
+                {
+                    effectSource.Play();
+                }
+                else
+                {
+                    effectSource.clip = Resources.Load<AudioClip>("Sounds/" + filename);
+                    if (effectSource.clip == null)
+                    {
+                        Debug.LogErrorFormat("Couldn't play sound '{0}'.", filename);
+                    }
+                    else
+                    {
+                        effectSource.Play();
+                    }
+                }
+
+                processedCommand = true;
             }
             else if (parts[0] == "IMAGE")
             {
