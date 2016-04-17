@@ -146,50 +146,43 @@ Europa: No problem, just...
 Zeus: Oh right, yeah.
 You move to the side and realise you've lost sight of Ganymede. Oh well, that can wait for later.
 * [Talk to Europa]
-Zeus: 
+Zeus: Hi. I'm Zeus.
+Europa: I know who you are.
+Zeus: Oh right. How?
+-> to_class
+* [Go to class]
+You head off to your classroom.
+Europa: Hold up!
+Zeus: Huh?
+Europa: Wait for me.
+-> to_class
 
+=to_class
+Europa: We're in the same class, dummy.
+Zeus: Oh! Right, yeah. Europa, isn't it?
+Europa: That's me.
+* ["So, uh, what are you doing after class?"]
+Zeus: So, uh, what are you doing after class?
+Europa: I think I'll go for a swim in the pool. I like to keep supple.
+Zeus: You look supple.
+Europa: Err...
+Zeus: No! I mean fit! You look f- ah!
+Europa: Hey, calm down. I'm just joking with you. Maybe you could join me later?
+-> join_europa
+* ["I don't even know what this class is"]
+Zeus: I don't even know what this class is.
+Europa: Oh, I think it's Infidelity 101.
+Zeus: That's not something I need education in.
+Europa: I don't pay much attention either. I just think about swimming while the teacher blathers on. Do you like to swim?
+-> join_europa
 
+=join_europa
+Zeus: I'd love to swim with you.
+Europa: That'd be nice.
+BACKGROUND classroom
+* [Take your seat] You go to take your seat -> smell
+* [Keep talking to Europa] You open your mouth to speak -> smell
 
-
-* [Check out the clocktower] -> clocktower
-* [Cruise on over to the swimming pool] -> swimming_pool
-* [Head over to the rowing club] -> rowing_club
-* [Drop by the gymnasium] -> gym
-* [See what's happening in the laboratory] -> lab
-* [Walk through the trees lining the playing fields] -> trees
-* [Go back to your throne on Mount Olympus] -> return_home
-
-=clocktower
-This is where Danae will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
-
-=swimming_pool
-This is where Europa will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
-
-=rowing_club
-This is where Leda will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
-
-=gym
-This is where Ganymede will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
-
-=lab
-This is where Semele will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
-
-=trees
-This is where Io will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
-
-=return_home
-This is where Hera will be. BUT NOT YET.
-* [Go back to choose a place on campus] -> on_earth
-* [End it all] -> END
+=smell
+but a strange smells reaches your nose. You head off to investigate.
+* [To the Laboratory!] This is where Semele will be. -> END
