@@ -1,32 +1,45 @@
-﻿using System;
+﻿using Ink.Runtime;
+using System.Collections.Generic;
 using UnityEngine;
-using Ink.Runtime;
-using UnityEditor;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class InkScript : MonoBehaviour
 {
     public TextAsset InkAsset;
+
     [SerializeField]
     private TextAsset namesInkAsset;
+
     private static Story inkStory;
 
     private string[] names;
 
     private char[] commandSeparator = { ' ' };
     private char[] nameSeparator = { ':' };
-   
+
+    private AudioSource musicSource;
+    private AudioSource effectSource;
+
     private Sprite[] backgrounds;
-    
+
     private SpriteRenderer backgroundSprite;
     private GameObject namePanel;
     private Text namePanelText;
-    [SerializeField]
-    private Text DialogText;
-    private Button[] ChoiceButtons;
-    private Text[] ChoiceTexts;
 
-    public void Awake ()
+    [SerializeField]
+    private Text dialogText;
+
+    private Button[] choiceButtons;
+    private Text[] choiceTexts;
+
+    private SpriteRenderer leftCharacterSprite;
+    private SpriteRenderer middleCharacterSprite;
+    private SpriteRenderer rightCharacterSprite;
+
+    private Dictionary<string, Sprite[]> characterImages;
+
+    public void Awake()
     {
         if (backgrounds == null)
         {
@@ -50,13 +63,29 @@ public class InkScript : MonoBehaviour
 
         if (inkStory == null)
         {
-            inkStory = new Story (InkAsset.text);
+            inkStory = new Story(InkAsset.text);
         }
 
-        // get texts from buttons, so we don't have to keep finding them
+        if (characterImages == null)
+        {
+            characterImages = new Dictionary<string, Sprite[]>();
+            foreach (var name in names)
+            {
+                var images = Resources.LoadAll<Sprite>("Characters/" + name);
+                characterImages.Add(name, images);
+            }
+
+            var leftSprite = GameObject.Find("Left Sprite");
+            leftCharacterSprite = leftSprite.GetComponent<SpriteRenderer>();
+            var middleSprite = GameObject.Find("Middle Sprite");
+            middleCharacterSprite = middleSprite.GetComponent<SpriteRenderer>();
+            var rightSprite = GameObject.Find("Right Sprite");
+            rightCharacterSprite = rightSprite.GetComponent<SpriteRenderer>();
+        }
+
         var choiceContainer = GameObject.Find("Choices");
-        ChoiceButtons = choiceContainer.GetComponentsInChildren<Button>();
-        ChoiceTexts = choiceContainer.GetComponentsInChildren<Text>();
+        choiceButtons = choiceContainer.GetComponentsInChildren<Button>();
+        choiceTexts = choiceContainer.GetComponentsInChildren<Text>();
     }
 
     private float MeasureStringWidth(Text text, string str)
@@ -70,7 +99,7 @@ public class InkScript : MonoBehaviour
 
             width += info.advance;
         }
-        
+
         return width;
     }
 
@@ -89,17 +118,17 @@ public class InkScript : MonoBehaviour
         var nameWidth = MeasureStringWidth(namePanelText, name);
         var width = 780 - (nameWidth + 30);
         rectTransform.offsetMax = new Vector2(-width, rectTransform.offsetMax.y);
-        
+
         namePanel.SetActive(true);
         namePanelText.text = name;
     }
 
     public void DisplayText(string text)
     {
-        var displayText = text;
+        var displayText = text.Trim();
         if (text.Contains(":") && names != null)
         {
-            var textParts = text.Split(nameSeparator, 2);
+            var textParts = displayText.Split(nameSeparator, 2);
             var lineName = textParts[0];
             foreach (var name in names)
             {
@@ -110,9 +139,9 @@ public class InkScript : MonoBehaviour
 
                 var speaker = textParts[0];
                 SetSpeaker(speaker);
-                
+
                 displayText = textParts[1].Trim();
-                
+
                 break;
             }
         }
@@ -120,8 +149,7 @@ public class InkScript : MonoBehaviour
         {
             SetSpeaker(string.Empty);
         }
-        DialogText.text = displayText;
-        Debug.Log(displayText);
+        dialogText.text = displayText;
     }
 
     private Sprite GetBackground(string bgName)
@@ -140,95 +168,241 @@ public class InkScript : MonoBehaviour
         return texture;
     }
 
-    public void Update ()
+    public void Update()
     {
         if (Input.anyKeyDown && inkStory.canContinue)
         {
             ContinueStory();
         }
-        
-        if(ChoiceButtons.Length < inkStory.currentChoices.Count)
+
+        if (choiceButtons.Length < inkStory.currentChoices.Count)
         {
             // too many choices or too few buttons!
-            Debug.LogError("Not enough buttons or too many choices! - did you add enough buttons? Choices: " + inkStory.currentChoices.Count + " Buttons: " + inkStory.currentChoices.Count);
+            Debug.LogError("Not enough buttons or too many choices! - did you add enough buttons? Choices: " +
+                           inkStory.currentChoices.Count + " Buttons: " + inkStory.currentChoices.Count);
         }
 
-        for (int i = 0; i < ChoiceButtons.Length; ++i)
+        for (int i = 0; i < choiceButtons.Length; ++i)
         {
             if (i >= inkStory.currentChoices.Count)
             {
-                ChoiceTexts[i].text = ""; // clear
-                ChoiceButtons[i].gameObject.SetActive(false);
+                choiceTexts[i].text = ""; // clear
+                choiceButtons[i].gameObject.SetActive(false);
             }
             else
             {
-                ChoiceTexts[i].text = inkStory.currentChoices[i].text;
-                ChoiceButtons[i].gameObject.SetActive(true);
+                choiceTexts[i].text = inkStory.currentChoices[i].text;
+                choiceButtons[i].gameObject.SetActive(true);
             }
         }
-      
+
     }
 
-    private void getNames ()
+    private void getNames()
     {
-        if (inkStory.canContinue) {
-            var text = inkStory.Continue ();
-            var parts = text.Split (commandSeparator, 2);
-            if (parts [0] == "NAMES") {
-                names = parts [1].Split (',');
-                for (var i = 0; i < names.Length; ++i) {
-                    names [i] = names [i].Replace ("\n", "").Trim ();
+        if (inkStory.canContinue)
+        {
+            var text = inkStory.Continue();
+            var parts = text.Split(commandSeparator, 2);
+            if (parts[0] == "NAMES")
+            {
+                names = parts[1].Split(',');
+                for (var i = 0; i < names.Length; ++i)
+                {
+                    names[i] = names[i].Replace("\n", "").Trim();
                 }
             }
         }
     }
 
-    public void MakeChoice (int choice)
+    public void MakeChoice(int choice)
     {
-        inkStory.ChooseChoiceIndex (choice);
+        inkStory.ChooseChoiceIndex(choice);
         ContinueStory();
+    }
+
+    private Sprite GetCharacterImage(string character, string expression)
+    {
+        Sprite[] images;
+        if (!characterImages.TryGetValue(character, out images))
+        {
+            int a = 0;
+            return null;
+        }
+
+        foreach (var image in images)
+        {
+            if (image.name == expression)
+                return image;
+        }
+
+        return null;
     }
 
     public void ContinueStory()
     {
         var text = inkStory.Continue();
-        var parts = text.Split(commandSeparator, 2);
+        Debug.Log(text);
 
-        if (parts[0] == "BACKGROUND")
-        { 
-            var bgName = parts[1].Replace("\n", "");
-            var sprite = GetBackground(bgName);
-            if (sprite == null)
-            {
-                Debug.LogErrorFormat("'{0}' is not a valid background image.", bgName);
-                Debug.DebugBreak();
-            }
-            backgroundSprite.sprite = sprite;
-            if (inkStory.canContinue)
-            {
-                text = inkStory.Continue();                
-            } else {
-                return;
-            }
-
-        } else if (parts[0] == "SCENE")
+        var processLine = true;
+        while (processLine)
         {
-            // Change the scene!
-            string[] guids = AssetDatabase.FindAssets(parts[1]);
-            string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
-            // ink files default to a DefaultAsset, throwing an exception. Manually replace extension with json.
-            assetPath = assetPath.Replace(".ink", ".json");
-            TextAsset newScene = (TextAsset)AssetDatabase.LoadMainAssetAtPath(assetPath);
-            inkStory = new Story(newScene.text);
-            if (inkStory.canContinue)
+            var parts = text.Split(commandSeparator, 2);
+
+            var processedCommand = false;
+            if (parts[0] == "BACKGROUND")
             {
-                text = inkStory.Continue();
-            } else
+                // Change the background
+                // BACKGROUND <background file>
+                var bgName = parts[1].Replace("\n", "");
+                var sprite = GetBackground(bgName);
+                if (sprite == null)
+                {
+                    Debug.LogErrorFormat("'{0}' is not a valid background image.", bgName);
+                    Debug.DebugBreak();
+                }
+
+                backgroundSprite.sprite = sprite;
+
+                processedCommand = true;
+            }
+            else if (parts[0] == "SCENE")
             {
-                return;
+                // Change the scene!
+                // SCENE <ink file>
+                string[] guids = AssetDatabase.FindAssets(parts[1]);
+                string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+                // ink files default to a DefaultAsset, throwing an exception. Manually replace extension with json.
+                assetPath = assetPath.Replace(".ink", ".json");
+                TextAsset newScene = (TextAsset) AssetDatabase.LoadMainAssetAtPath(assetPath);
+                inkStory = new Story(newScene.text);
+
+                processedCommand = true;
+            }
+            else if (parts[0] == "MUSIC")
+            {
+                // Play/stop music
+                // MUSIC [filename|stop]
+            }
+            else if (parts[0] == "SOUND")
+            {
+                // Play a sound
+            }
+            else if (parts[0] == "IMAGE")
+            {
+                // Show an image at a specific spot.
+                // IMAGE [left|middle|right] <character>_<expression> <flipped>
+                var imageParts = parts[1].Split(' ');
+
+                if (imageParts.Length < 2 ||
+                    imageParts.Length > 3)
+                {
+                    // Incorrectly formed IMAGE command
+                }
+
+                var pos = imageParts[0].ToLower();
+                if (pos != "left" &&
+                    pos != "middle" &&
+                    pos != "right")
+                {
+                    // Error out
+                }
+
+                var filenameParts = imageParts[1].Trim().Split('_');
+                var character = filenameParts[0];
+                var expression = filenameParts[1];
+
+                var image = GetCharacterImage(character, expression);
+                if (image == null)
+                {
+                    // Error out
+                }
+
+                var isFlipped = (imageParts.Length == 3);
+
+                switch (pos)
+                {
+                    case "left":
+                        leftCharacterSprite.sprite = image;
+                        leftCharacterSprite.flipX = isFlipped;
+                        break;
+                    default:
+                        middleCharacterSprite.sprite = image;
+                        middleCharacterSprite.flipX = isFlipped;
+                        break;
+                    case "right":
+                        rightCharacterSprite.sprite = image;
+                        rightCharacterSprite.flipX = isFlipped;
+                        break;
+                }
+                processedCommand = true;
+            }
+            else if (parts[0] == "FLIP")
+            {
+                // Flips the image at a specific spot.
+                // FLIP [left|middle|right]
+
+                var slot = parts[1].Trim();
+
+                switch (slot)
+                {
+                    case "left":
+                        leftCharacterSprite.flipX = !leftCharacterSprite.flipX;
+                        break;
+                    default:
+                        middleCharacterSprite.flipX = !middleCharacterSprite.flipX;
+                        break;
+                    case "right":
+                        rightCharacterSprite.flipX = !rightCharacterSprite.flipX;
+                        break;
+                }
+
+                processedCommand = true;
+            }
+            else if (parts[0] == "CLEAR")
+            {
+                // Clears either a specific character slot or all of them
+                // CLEAR [left|middle|right|all]
+
+                var slot = parts[1].Trim();
+
+                switch (slot)
+                {
+                    case "left":
+                        leftCharacterSprite.sprite = null;
+                        break;
+                    case "middle":
+                        middleCharacterSprite.sprite = null;
+                        break;
+                    case "right":
+                        rightCharacterSprite.sprite = null;
+                        break;
+                    default:
+                        leftCharacterSprite.sprite = null;
+                        middleCharacterSprite.sprite = null;
+                        rightCharacterSprite.sprite = null;
+                        break;
+                }
+
+                processedCommand = true;
+            }
+
+            if (!processedCommand)
+            {
+                DisplayText(text);
+                processLine = false;
+            }
+            else
+            {
+                if (inkStory.canContinue)
+                {
+                    text = inkStory.Continue();
+                }
+                else
+                {
+                    processLine = false;
+                }
             }
         }
-
-        DisplayText(text);
     }
 }
