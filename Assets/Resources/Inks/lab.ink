@@ -56,7 +56,7 @@ Zeus: No, I totally get it!
 Semele: You do?
 Zeus: Yes!
 Semele: The wonderful agony of having electricity surge through you?
-Zues: Let's exchange notes.
+Zeus: Let's exchange notes.
 
 You swiftly shapeshift into the form of a lightning bolt. Semele's eyes widen.
 
@@ -104,7 +104,7 @@ Zeus: Sure, why not? My schedule's free.
 Semele: I don't doubt that for a second.
 Zeus: Hey, you're the one holed up in a science lab while everyone else is being all studenty and partying and stuff.
 Semele: Well, off you go then.
-ZUES: Nah. I think I like it more in here.
+Zeus: Nah. I think I like it more in here.
 Semele: Suit yourself.
 
 She returns to electrocuting the frog while keeping an occasional eye on you. For all the awkwardness she doesn't seem to be too put out by your presence.

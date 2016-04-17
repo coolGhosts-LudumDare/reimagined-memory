@@ -120,10 +120,11 @@ public class InkScript : MonoBehaviour
         if (namePanelText.text == name)
             return;
 
-        var rectTransform = namePanel.GetComponent<RectTransform>();
+        // TODO: Disabling the resizing for now.
+        /*var rectTransform = namePanel.GetComponent<RectTransform>();
         var nameWidth = MeasureStringWidth(namePanelText, name);
         var width = 780 - (nameWidth + 30);
-        rectTransform.offsetMax = new Vector2(-width, rectTransform.offsetMax.y);
+        rectTransform.offsetMax = new Vector2(-width, rectTransform.offsetMax.y);*/
 
         namePanel.SetActive(true);
         namePanelText.text = name;
