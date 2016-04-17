@@ -1,6 +1,6 @@
 === image_test ===
 BACKGROUND gym1
-MUSIC Mounting_Olympus
+MUSIC A Study In Hot Pink
 Image test!
 IMAGE middle Zeus_test
 Zeus: It's me, Zeus!

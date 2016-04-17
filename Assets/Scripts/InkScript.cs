@@ -277,19 +277,24 @@ public class InkScript : MonoBehaviour
             {
                 // Change the scene!
                 // SCENE <ink file>
-                string[] guids = AssetDatabase.FindAssets(parts[1]);
-                string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
-                // ink files default to a DefaultAsset, throwing an exception. Manually replace extension with json.
-                assetPath = assetPath.Replace(".ink", ".json");
-                TextAsset newScene = (TextAsset) AssetDatabase.LoadMainAssetAtPath(assetPath);
-                inkStory = new Story(newScene.text);
+                var filename = parts[1].Trim();
+
+                var file = Resources.Load<TextAsset>("Inks/" + filename);
+                if (file == null)
+                {
+                    Debug.LogErrorFormat("Couldn't switch to scene '{0}'.", filename);
+                }
+                else
+                {
+                    inkStory = new Story(file.text);
+                }
 
                 processedCommand = true;
             }
             else if (parts[0] == "MUSIC")
             {
                 // Play/stop music
-                // MUSIC [filename|stop]
+                // MUSIC [<filename>|stop]
 
                 var filename = parts[1].Trim();
 
@@ -303,15 +308,9 @@ public class InkScript : MonoBehaviour
                         musicSource.clip.name != filename)
                     {
                         musicSource.clip = Resources.Load<AudioClip>("Music/" + filename);
-                        if (musicSource.clip == null)
-                        {
-                            Debug.LogErrorFormat("Couldn't play music '{0}'.", filename);
-                        }
                     }
-                    else
-                    {
-                        musicSource.Play();
-                    }
+
+                    musicSource.Play();
                 }
 
                 processedCommand = true;
