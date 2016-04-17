@@ -798,9 +798,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 35
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1115,9 +1115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17f37ce563dba94eb43790a41fecafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InkAsset: {fileID: 4900000, guid: fd5fd75604970c840865710f26450dd1, type: 3}
+  InkAsset: {fileID: 4900000, guid: 4542b6efe26275c4795fb79eb888fad6, type: 3}
   namesInkAsset: {fileID: 4900000, guid: 3a04c35011e91e346ba2f08be9e60feb, type: 3}
-  DialogText: {fileID: 11445312}
+  dialogText: {fileID: 11445312}
 --- !u!114 &11484516
 MonoBehaviour:
   m_ObjectHideFlags: 1
