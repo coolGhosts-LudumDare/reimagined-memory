@@ -11,9 +11,6 @@ public class InkScript : MonoBehaviour
     private TextAsset namesInkAsset;
     private static Story inkStory;
 
-    private const string names_knot = "names";
-    private const string first_knot = "story_start";
-
     private string[] names;
 
     private char[] commandSeparator = { ' ' };
@@ -214,6 +211,22 @@ public class InkScript : MonoBehaviour
                 return;
             }
 
+        } else if (parts[0] == "SCENE")
+        {
+            // Change the scene!
+            string[] guids = AssetDatabase.FindAssets(parts[1]);
+            string assetPath = AssetDatabase.GUIDToAssetPath(guids[0]);
+            // ink files default to a DefaultAsset, throwing an exception. Manually replace extension with json.
+            assetPath = assetPath.Replace(".ink", ".json");
+            TextAsset newScene = (TextAsset)AssetDatabase.LoadMainAssetAtPath(assetPath);
+            inkStory = new Story(newScene.text);
+            if (inkStory.canContinue)
+            {
+                text = inkStory.Continue();
+            } else
+            {
+                return;
+            }
         }
 
         DisplayText(text);
