@@ -1,3 +1,3 @@
 === names ===
-NAMES Zeus, Hera, Io
+NAMES Zeus, Hera, Io, A mysterious stranger
 -> DONE

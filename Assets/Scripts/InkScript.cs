@@ -15,15 +15,15 @@ public class InkScript : MonoBehaviour
     private const string first_knot = "story_start";
 
     private string[] names;
-    private string currentSpeaker = string.Empty;
 
     private char[] commandSeparator = { ' ' };
     private char[] nameSeparator = { ':' };
-
    
     private Sprite[] backgrounds;
     
     private SpriteRenderer backgroundSprite;
+    private GameObject namePanel;
+    private Text namePanelText;
     [SerializeField]
     private Text DialogText;
     [SerializeField]
@@ -35,8 +35,11 @@ public class InkScript : MonoBehaviour
         backgrounds = Resources.LoadAll<Sprite>("Backgrounds");
 
         var backgroundGameObject = GameObject.Find ("Background");
-        
         backgroundSprite = backgroundGameObject.GetComponent<SpriteRenderer> ();
+
+        namePanel = GameObject.Find("Name");
+        namePanelText = namePanel.GetComponentInChildren<Text>();
+        namePanel.SetActive(false);
     }
 
     public void Awake ()
@@ -45,7 +48,6 @@ public class InkScript : MonoBehaviour
         getNames();
 
         inkStory = new Story (InkAsset.text);
-        
 
         // get texts from buttons, so we don't have to keep finding them
         ChoiceTexts = new Text[ChoiceButtons.Length];
@@ -57,6 +59,40 @@ public class InkScript : MonoBehaviour
         }
     }
 
+    private float MeasureStringWidth(Text text, string str)
+    {
+        var width = 0f;
+
+        foreach (var chr in str)
+        {
+            CharacterInfo info;
+            text.font.GetCharacterInfo(chr, out info, text.fontSize);
+
+            width += info.advance;
+        }
+        
+        return width;
+    }
+
+    private void SetSpeaker(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+        {
+            namePanel.SetActive(false);
+            return;
+        }
+
+        if (namePanelText.text == name)
+            return;
+
+        var rectTransform = namePanel.GetComponent<RectTransform>();
+        var nameWidth = MeasureStringWidth(namePanelText, name);
+        var width = 780 - (nameWidth + 30);
+        rectTransform.offsetMax = new Vector2(-width, rectTransform.offsetMax.y);
+        
+        namePanel.SetActive(true);
+        namePanelText.text = name;
+    }
 
     public void DisplayText(string text)
     {
@@ -73,12 +109,16 @@ public class InkScript : MonoBehaviour
                 }
 
                 var speaker = textParts[0];
-                // TODO: Set displayText to textParts[1] once we have it all visual-like
-                displayText = string.Format("[{0}]{1}", speaker, textParts[1]);
+                SetSpeaker(speaker);
+                
+                displayText = textParts[1].Trim();
                 
                 break;
             }
-       
+        }
+        else
+        {
+            SetSpeaker(string.Empty);
         }
         DialogText.text = displayText;
         Debug.Log(displayText);
