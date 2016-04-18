@@ -62,7 +62,8 @@ Io: Eagles vs. Bulls. It's the play-offs!
 -> io_leave
 * ["You better go"]
 Zeus: Well, you'd better be on your way. You don't want to miss kickoff.
-Io: I'm so excited!!! See you around. The name's Io by the by. -> hallway
+Io: I'm so excited!!! See you around. The name's Io by the by.
+-> hallway
 
 =hallway
 Io heads off to the playing fields, pumping her arm in the air.
