@@ -516,7 +516,7 @@ Prefab:
     - target: {fileID: 11484018, guid: 991f0ca73e16e854cb9c9f8bfc58ca34, type: 2}
       propertyPath: InkAsset
       value: 
-      objectReference: {fileID: 4900000, guid: 4ceb77a8c19186a44a421f3f3c348636, type: 3}
+      objectReference: {fileID: 4900000, guid: 9a4331b63bdfb1e45a57ac42aa02f19f, type: 3}
     - target: {fileID: 22456466, guid: 991f0ca73e16e854cb9c9f8bfc58ca34, type: 2}
       propertyPath: m_AnchorMin.y
       value: 0

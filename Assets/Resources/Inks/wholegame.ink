@@ -2,6 +2,7 @@
 
 = throne
 BACKGROUND olympus
+MUSIC Mounting Olympus
 You sit atop a golden throne at the summit of Mount Olympus as clouds scud by.
 * [Bask in your own glory] You are Zeus. The bestest, most lightningy god of the pantheon; the Greek one, at least. Ah, this is the life. Just sitting, basking, -> hera
 * [Look down at the people on earth] -> fig_or_lit
@@ -46,22 +47,7 @@ You give Hera a big, soppy wet one and make your way to university. -> earth_tra
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 === earth_travel_choice ===
-
-BACKGROUND olympus
-
 How do you want to get down to earth?
 * [I'm a god right? I must have some godlike powers] -> powers
 
@@ -74,7 +60,7 @@ You look down at the long path down to earth waaaaay in the distance. -> walk
 * [I suppose I could try out this Lightning thing] -> lightning
 
 =walk
-{ | You take one step further along your journey. This will take no time. No time at all. | Walking is fun, isn't it? Just you, some feet (usually yours), the air, some... er surroundings, the sound of feet on the surface upon which they... um are. Yay, walking! | Your foot brushes against a rock, causing you to lose balance. You stumble and right yourself. Phew, exciting times. | Ugh, the air's so thick and breathable down here. It's not even a struggle to fill your lungs. | I don't know what this means. But you've made good progress down this massive mount(ain). | At last you make to the ground. As the foot touches the earth you transform into a human - you don't want any of the locals to spot your godly form and spontaneously combust (it can happen).-> on_earth}
+{ | You take one step further along your journey. This will take no time. No time at all. | Walking is fun, isn't it? Just you, some feet (usually yours), the air, some... er surroundings, the sound of feet on the surface upon which they... um are. Yay, walking! | Your foot brushes against a rock, causing you to lose balance. You stumble and right yourself. Phew, exciting times. | Ugh, the air's so thick and breathable down here. It's not even a struggle to fill your lungs. | I don't know what this means. But you've made good progress down this massive mount(ain). | At last you make to the ground. As the foot touches the earth you transform into a human - you don't want any of the locals to spot your godly form and spontaneously combust (it can happen). -> pre_on_earth}
 * [{Take a step|Keep going|Steppy steppy step|A little bit further|Perambulate|One final step}] -> walk
 * [{Walk|Onward! good feet!|Footprints are better than thunder and lightning, anyway|Stop! Only joking, keep going|Perambulate|One final step}] -> walk
 * [{Put your right foot first|Left foot, right foot|And again|The ground is like a giant treadmill|Perambulate|One final step}] -> walk
@@ -84,16 +70,23 @@ You look down at the long path down to earth waaaaay in the distance. -> walk
 * [Use lightning] -> lightning
 
 =lightning
+SOUND Shape of a Goat
 You leap into the air. At the apex of your jump, you crackle into a bolt of lightning, bright and powerful. You zip down to earth at the speed of light.
 Lightning: KRAKOOOM!
 Lightning: Wheeeeee
+SOUND Form of a Deity
 As the spark touches the ground you transform into a human - you don't want any of the locals to spot your godly form and spontaneously combust (it can happen).
 You hear the thunder from your own lightning bolt because physics.
+-> on_earth
+
+=pre_on_earth
+-Who needs those powers anyway! Bah!
 -> on_earth
 
 =on_earth
 
 BACKGROUND exterior
+MUSIC My God Ate My Homework
 
 You look around you and spot your university campus; the Zeus Is Great, Zeus Am God University (or ZIGZAG U) is the best darn place for schoolin' in the Greek islands, nay, the world! (but what's the difference, eh?)
 * [...] -> uni
@@ -131,6 +124,7 @@ Io heads off to the playing fields, pumping her arm in the air.
 Io: Bulls! Bulls! Bulls!
 You head inside.
 BACKGROUND hallway
+MUSIC A Study In Hot Pink
 Leda: Hey! Could you hold that door?
 Leda's carrying some long poles on her way outside.
 * ["Let me help you with those"]
@@ -189,6 +183,7 @@ Leda: You're telling me!
 Leda: Anyway, I better get going. Those boats aren't going to... row... them- I wish I hadn't started saying that!
 Leda leaves hurriedly, trying to hide her reddening face with the oars.
 BACKGROUND lockers
+MUSIC My God Ate My Homework
 You go further into the building, stopping when you see Ganymede at his locker. He's laughing with some teammates.
 Ganymede: Have you heard? Someone's been locked in the tower, I hear she was -
 Europa: Excuse me.
@@ -246,14 +241,8 @@ BACKGROUND classroom
 
 =smell
 but a strange smells reaches your nose. You head off to investigate.
-* [To the Laboratory!] -> lab
-
-
-
-
-
-
-
+* [To the Laboratory!]
+-> lab
 
 
 
@@ -264,6 +253,7 @@ BACKGROUND lab
 CLEAR all
 IMAGE left Zeus_normal 
 IMAGE right Semele_normal flip
+MUSIC A Study In Hot Pink
 
 The acrid smell of burning overwhelms you as you enter the science lab. 
 
@@ -340,7 +330,7 @@ Zeus: Now we're talking.
 Semele: You really think you're up to it, huh? 
 Zeus: Actually I think you're a bit of an amateur. Get ready for a SHOCKING revelation.
 Semele: Ugh, I hope that's not another pun.
-
+SOUND Shape of a Goat
 You do your shape-shift shimmy and assume the form of a lightning bolt.
 
 Semele: Dammit.
@@ -366,7 +356,7 @@ Semele: These electrodes are rubbish. No power!
 Zeus: Ooh, I might be able to help you with that.
 Semele: No dice Mr Mansplainey, I've tried fiddling with them but there's no way to increase the voltage.
 Zeus: Well yes, but have you tried FIDDLING WITH THIS.
-
+SOUND Shape of a Goat
 As you shapeshift into the form of a lightning bolt your clothes mysteriously disappear. You've never figured out how or why that happens but they come back when you revert so you've never really questioned it.
 
 Semele: HOLY LIGHTNING COCK!
@@ -376,6 +366,8 @@ Lightning: Yeah, pretty much.
 
 
 =semele_is_interested
+
+MUSIC Under a Moonlit God
 
 Semele: You just became a whole lot more interesting, and I already sort of had a thing for you.
 Lightning: Good to know.
@@ -418,11 +410,14 @@ Semele is really hot! Like really, as in temperature hot. In fact, she's so hot 
 
 Semele: Oh, shitting cock.
 
-The fire engulfs her completely and she explodes into a (hot) mess. Before you can respond to what's happened all that remains of her is an ashy cloud hovering above you. You sheepishly re-assume your human form (though not as sheepishly, it must be said, as you would if assuming the form of a sheep).
-
+The fire engulfs her completely and she explodes into a (hot) mess. Before you can respond to what's happened all that remains of her is an ashy cloud hovering above you.
+SOUND Form of a Deity
+You sheepishly re-assume your human form (though not as sheepishly, it must be said, as you would if assuming the form of a sheep).
 
 IMAGE middle Zeus_normal flip
 IMAGE left Semele_cloud
+
+MUSIC Under a Starstruck Moon
 
 Zeus: Ooooh... sorry about that.
 Semele: Don't apologize! That was COMPLETELY amazing.
@@ -449,16 +444,20 @@ You adopt your best shapeshifting pose and clench like you've never clenched bef
 
 Zeus: Zig-a-zig, Aah!
 
+SOUND Shape of a Goat
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a cloud!
 
 Cloud: Hey, that DOES tickle. I'd better revert to my human form before I become overstimulated.
 
+SOUND Form of a Deity
 Zeus: Ah, that's better. The reassuring familiarity of dangling flesh.
 Hera: ZEUS!!
 Zeus: Ah, crap.
 
 FLIP middle
 
+MUSIC In the Arms of a Parrot
+SOUND Form of a Deity
 Your wife Hera wisps in through the window and assumes her human form. You wish she'd just use the door like everyone else.
 
 IMAGE right Hera_normal flip
@@ -495,19 +494,16 @@ Zeus: Yes well there's those, but I'm a changed man! New Zeus doesn't cheat on A
 Hera: Can't. I'm off to the winery with Cydippe and I'm already late. 
 Zeus: Well, don't let me hold you up, my one and only true love.
 Hera: Hmph.
-* [Mooch on over to the playing fields] -> playing_fields
-
-
-
-
-
-
-
+* [Mooch on over to the playing fields]
+-> playing_fields
 
 
 === playing_fields ===
 
 BACKGROUND outdoor
+MUSIC My God Ate My Homework
+CLEAR all
+
 You mooch on over to the playing fields, the sound of a cheering crowd reaching your ears as you walk among some trees.
 Io: You found my secret spot.
 Zeus: Uh, hi. I didn't see you there.
@@ -593,13 +589,16 @@ Io: 1. I have a terrible sense of balance, I do not want to be falling out of an
 Io: 2. There's hardly any leaves on these trees, they wouldn't keep us hidden from anyone.
 Io: 3. It's just a really stupid suggestion.
 -> io_flirty
-* [Shapeshift into Lightning] Fananganang! You're lightning.
+* [Shapeshift into Lightning]
+SOUND Shape of a Goat
+Fananganang! You're lightning.
 Io: Ah! What the? How? Whu? Huh?
 Lightning: If I flash in front of everyone's eyes I could blind them all. Then no one would see us.
 Io: Oh. That's not a bad idea, but have you got one that doesn't cause permanent damage to everyone?
 -> io_flirty
 * [Shapeshift into Cloud]
 Zeus: If I do this. Hghngh!
+SOUND Shape of a Goat
 You floof into a cloud.
 Cloud: I can surround you in my misty embrace, keeping you completely hidden from any prying eyes.
 Io: Come on then. But how will you, you know...
@@ -626,7 +625,9 @@ Io: Mmmmmm huh. Huh. Oh.
 Some students turn to look as they're walking by.
 Well, this is a bit awkward. Maybe you should hide Io's wriggling and writhing from prying eyes.
 But how? Surely one of your transformations could help out now.
-* [Shapeshift into Lightning] You clatter into the form of lightning.
+* [Shapeshift into Lightning]
+SOUND Shape of a Goat
+You clatter into the form of lightning.
 Lightning: I'll blind anyone that tries to sneaks a peek.
 Io: What'd you say?
 Lightning: Umm, nothing.
@@ -644,19 +645,24 @@ No sooner have you done this than Hera appears before you. Gulp.
 
 = hide_io
 What are you going to do now?
-* [Shapeshift] Shapeshifting to any other form will reveal Io, and Hera will certainly not be happy about seeing that.
+* [Shapeshift]
+Shapeshifting to any other form will reveal Io, and Hera will certainly not be happy about seeing that.
 -> hide_io
-* [Look around] You look around you. The mascot's costume is leaning against a tree right next to you.
+* [Look around]
+You look around you. The mascot's costume is leaning against a tree right next to you.
 Cloud: Hey, Io.
 Io: Yeah?
 Cloud: Put the costume on.
 Io: Wow. When did he leave that here? Man, if I've wasted a MINUTE where I could've been wearing that, I'll be so mad.
 Cloud: Just put it on will you? Quickly!
 Io: OK. You don't have to tell me twice.
+SOUND Form of a Deity
 Io scrambles into the bull costume. And just in time; no sooner has she pulled the head on, Hera appears before you.
 -> hera_io
 
 = hera_io
+
+MUSIC In the Arms of a Parrot
 Hera: Zeus! What are you hiding in there?
 Cloud: I-I'm not Zeus. I'm a fluffy cloud.
 Hera: Zeus. I'm giving you 'til the count of three to become something with a face I can talk to. And probably slap if you're doing what I think you are. 1... 2...
@@ -690,6 +696,7 @@ Zeus: I won't, dear.
 Hera: That's good to hear. I'll see you later. But not much later, so don't get any ideas.
 Zeus: No, snookums.
 You blink and she's gone. She didn't even say 'bye'. Bit rude.
+MUSIC Under a Moonlit God
 * ["You can come out now, Io"]
 Zeus: It's OK. You can come out now, Io.
 She doesn't seem to have heard.
@@ -697,6 +704,7 @@ Zeus: Hey that bull costume saved my bacon just then. I wonder if I could...
 You shake out your hands and legs.
 Zeus: Bar bar bar bar barbara ann.
 
+SOUND Shape of a Goat
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a bull!
 
 Bull: Hey Geppetto - I mean Io - I'm a real life bull.
@@ -707,6 +715,7 @@ Io: I'm in the middle of something here. Maybe another time, alright?
 Bull: You don't know what you're missing. I'm a fine specimen from nose to tail.
 Io: To be honest with you, I'm really more into the costume than real bulls. I don't think I could handle a real one.
 Bull: That makes sense.
+SOUND Form of a Deity
 You changed back to human form.
 Zeus: Well, good luck with everything.
 Io: Mmmhmmmm.
@@ -726,6 +735,7 @@ You walk away and cruise on over to the swimming pool.
 = poolside
 
 BACKGROUND pool
+MUSIC A Study In Hot Pink
 
 There's one person swimming in the pool. Long strokes making her glide easily through the water. She stops and treads water when she sees you approach.
 Europa: Hey there, handsome. Taken up my offer, have you?
@@ -740,22 +750,30 @@ Zeus: You think that's impressive? Get an eyeful of this.
 
 = impressing
 How will you impress Europa?
-* [Shapeshift into Lightning] Shazam! You throb with electric power.
+* [Shapeshift into Lightning]
+SOUND Shape of a Goat
+Shazam! You throb with electric power.
 Europa: What do you think you're doing? Trying to kill me?!
 Lightning: I just thought-
 Europa: No, you didn't think. Water and lightning and human bodies don't go together well. The results can be rather lethal.
 Lightning: Right, right. I'll try to remember that.
+SOUND Form of a Deity
 You return to human form.
 -> impressing
-* [Shapeshift into Cloud] Flimp! You're a cloud. You float over the pool and mingle with the steam rising off the water.
+* [Shapeshift into Cloud]
+SOUND Shape of a Goat
+Flimp! You're a cloud. You float over the pool and mingle with the steam rising off the water.
 Cloud: Teeheehee!
 Europa: What's so funny?
 Cloud: It's just so tickly.
 Europa: I guess that is pretty impressive. What else can you do?
+SOUND Form of a Deity
 You glide back over to the poolside and return to human form.
 Zeus: Let me think...
 -> impressing
-* [Shapeshift into Bull] Heffalump! You morph into a bull.
+* [Shapeshift into Bull]
+SOUND Shape of a Goat
+Heffalump! You morph into a bull.
 Bull: How does this transmogrification suit your desires?
 Europa: Woah! You're so muscular, so... so beefy!
 Bull: I am delighted to have met with your approval.
@@ -779,7 +797,8 @@ Europa: Thank you. I, err... needed that.
 She kisses you on the nose. You feel somewhat dizzy. Stars spin in your eyes.
 Europa: Change back into a human and I'll make it worth your while.
 -> light_get
-* [Thrust your hips forward] You thrust your hips forward.
+* [Thrust your hips forward]
+You thrust your hips forward.
 Zeus: Huzzah!
 When the motion's stopped you look at Europa.
 Europa: Yyyyyeah... Not quite so impressive anymore.
@@ -787,8 +806,11 @@ You'll have to do something to get her back onside.
 -> impressing
 
 = light_get
-* [Shapeshift into Human] You shut your eyes to concentrate on your transformation but all you can see is stars.
+* [Shapeshift into Human]
+You shut your eyes to concentrate on your transformation but all you can see is stars.
+SOUND Shape of a Goat
 Twinkle twinkle! Well something's happened. You've changed form.
+MUSIC Under a Starstruck Moon
 You open your eyes and look at yourself. You see a glimmering mass of lights.
 
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a light!
@@ -822,11 +844,17 @@ BACKGROUND clockTowerOutside
 You approach the tall tower. It's tall. It's a tower. Hold on. I forgot clock.
 Clock tower. The tall clock tower. Tall, towering, and clocky.
 Nice.
-* [Jump] You try to jump onto the roof, but only make it a foot (30.48cm) off the ground. I don't know why you bothered trying. So you just walk in through the door. -> clock_interior
-* [Use the door] You grip the doorknob firmly in your hand and turn it. You push against the door. But nothing happens.
-You try pulling the door. Something happens. Shock horror: the door opens! Who would've believed it, eh? You skulk inside like a typoed skunk. -> clock_interior
+* [Jump]
+You try to jump onto the roof, but only make it a foot (30.48cm) off the ground. I don't know why you bothered trying. So you just walk in through the door.
+-> clock_interior
+* [Use the door]
+You grip the doorknob firmly in your hand and turn it. You push against the door. But nothing happens.
+You try pulling the door. Something happens. Shock horror: the door opens! Who would've believed it, eh? You skulk inside like a typoed skunk.
+-> clock_interior
 
 = clock_interior
+
+MUSIC Mounting Olympus
 It's pretty dark inside, but you can see there's nothing of interest on the ground floor so you head up the wooden set of stairs.
 BACKGROUND door
 At the top is a door, a beam of light shines through a keyhole, and - under the sound of a machine humming - you can hear someone scrabbling around in the room beyond.
@@ -876,8 +904,10 @@ Zeus: I better think quickly
 
 = shapeshift_danae
 What will you shapeshift into?
-* [Lightning] You decide to become Lightning.
+* [Lightning]
+You decide to become Lightning.
 Zeus: Remain standing back!
+SOUND Shape of a Goat
 Your skin frizzles with electric energy. Wham! You're a lightning bolt.
 Lightning: I hadn't thought this through!
 You earth to the nearest metal object: the door handle. It promptly melts leaving a red hot lump that's no use to anyone anymore. Good work.
@@ -886,6 +916,7 @@ You earth to the nearest metal object: the door handle. It promptly melts leavin
 Zeus: OK, you don't need to be as standing back now. I don't think even I could hurt you while being a soft billowy cloud.
 Danae: You what?
 Zeus: Oh, forget it.
+SOUND Shape of a Goat
 Puff! You're a cloud.
 -> cloud_danae.
 * [Bull] You will take on the form of a bull.
@@ -895,6 +926,7 @@ OK.
 Zeus: Could you please go as far back and remain as un-matador-like as you can?
 Danae: I don't like the sound of this.
 Ignore her. This is the best idea ever.
+SOUND Shape of a Goat
 Flink! You're a bull. The wooden landing below you creaks with the sudden weight of your bulk.
 -> bull_landing
 * [Light] You're gonna give this Light thing a try.
@@ -903,6 +935,7 @@ Zeus: That might be how this works, I'm not really sure.
 Zeus: Anyway. Stand back. Away from the door.
 Danae: *mumble mumble*
 Zeus: What? I didn't hear you cos
+SOUND Shape of a Goat
 Light: I just changed into a shower of gold light *sparkle sparkle*
 Danae: R-right. Anyway. If you could go and get me some help that would be great. Emphasis on 'go'.
 -> light_danae
@@ -919,7 +952,7 @@ Zeus: Nothing.
 = bull_landing
 You eye up the door, readying to charge it.
 * [Charge] You put one hoof forward, the wood underneath splinters and you trip, hitting your head against the door. You've left a small scratch in the wood, but otherwise the door is still as solid as before.
-Bull: Um... That was a practise run.
+Bull: Um... That was a practice run.
 Danae: You're practising knocking on the door? How's that going to help?
 Bull: I thought your imprisonment might be psychosomatic.
 Danae: Don't be ridiculous. Just open the door!
@@ -939,13 +972,16 @@ Danae: It might be growing on me.
 Light: *sparkl-
 Danae: Growing on my nerves! Would you stop that and just do some rescuing? Please. I really need a wee.
 * [Zip through the keyhole] You bundle your photons together and point a ray through the keyhole.
-Before you know it, you're on the other side. -> in_clock
+Before you know it, you're on the other side.
+-> in_clock
 * [Just stay where I am, thanks] You remain in place. As much as a wild bundle of particles can remain in one place, anyway.
 In fact, anyone with a passing interest in particle physics will know how particles can suddenly be somewhere else entirely.
-And lo and behold, wouldn't you know it, at this very instant all of your particles have shifted over to the other side of the door. What are the chances? -> in_clock
+And lo and behold, wouldn't you know it, at this very instant all of your particles have shifted over to the other side of the door. What are the chances?
+-> in_clock
 
 = in_clock
 BACKGROUND clockTowerInside
+MUSIC In the Arms of a Parrot
 Finally inside the inner workings of the clock tower, you can see Danae for the first time. Unfortunately the moment is slightly ruined by the mass of dead birds covering the floor.
 Danae: I-is that you?
 Light: Of course. My name's Zeus, what's yours?
@@ -980,6 +1016,7 @@ Light: There's an open panel up there
 Danae: I've climbed up and had a look. It's no good, there's a shear drop outside.
 Danae: Maybe if it was on the other side I could dive into the river, but sadly it's hard ground below.
 Light: Hey
+SOUND Form of a Deity
 Zeus: I think I've got a plan.
 Danae: Oh, is that what you really look like?
 Zeus: Kinda. Do you like it?
@@ -1002,12 +1039,15 @@ What will you shapeshift into?
 * [Lightning]
 Zeus: Keep well clear and make sure you're not touching anything metal.
 Danae: Er... OK.
+SOUND Shape of a Goat
 CHOOM! You're lightning, you are.
 -> lightning_interior
 * [Cloud] You foof into a cloud and are immediately sucked into the fan. After spinning you around a couple of times, it spits you out and the wind forces you back out through the keyhole.
 BACKGROUND door
+SOUND Shape of a Goat
 Once again on the wrong side of the door, you shapeshift into light to get back to Danae.
 BACKGROUND clockTowerInside
+SOUND Form of a Deity
 Zeus: That didn't go as I expected. Maybe if I try...
 -> shapeshift_interior
 * [Bull] Your muscles ripple and alter as you become the bull. You dip your head, aiming for the door. You scrape a hoof along the floor.
@@ -1036,17 +1076,28 @@ Zeus: As a matter of fact, I am.
 
 = next_stage
 What will you shapeshift into?
-* [Lightning] You crackle into a bolt of lightning and touch another of the birds, but it's no good. They're all de-feathered. And trying to Frankenstein them simply won't work. You'll have to use a different form.
+* [Lightning]
+SOUND Shape of a Goat
+You crackle into a bolt of lightning and touch another of the birds, but it's no good. They're all de-feathered. And trying to Frankenstein them simply won't work. You'll have to use a different form.
+SOUND Form of a Deity
 -> next_stage
-* [Cloud] You shoomf into a cloud and are immediately sucked into the fan and out through the keyhole.
+* [Cloud]
+SOUND Shape of a Goat
+You shoomf into a cloud and are immediately sucked into the fan and out through the keyhole.
 BACKGROUND door
 You pulse into lightning to get back into the feather-floored room.
 BACKGROUND clockTowerInside
 Another angle will have to be considered.
+SOUND Form of a Deity
 -> next_stage
-* [Bull] You growl into a bull.
+* [Bull]
+SOUND Shape of a Goat
+You growl into a bull.
 -> bull_interior
-* [Light] You shimmer into light. You feel very sparkly but ultimately useless in the current situation. Maybe choose a different form.
+* [Light]
+SOUND Shape of a Goat
+You shimmer into light. You feel very sparkly but ultimately useless in the current situation. Maybe choose a different form.
+SOUND Form of a Deity
 -> next_stage
 
 = bull_interior
@@ -1087,6 +1138,7 @@ You angle the fan to do just that, watching feathers fly out and fall to the gro
 You let the last few feathers fall to the floor before releasing the fan.
 Bull: That should give us a sufficiently cushioned landing to prevent injury.
 Danae: Thank you. I can finally get out of here.
+SOUND Form of a Deity
 * ["What's the hurry?"]
 Zeus: What's the hurry? I was just getting to know you.
 Danae: Well, I did kinda like you when you were that shower of gold light.
@@ -1105,6 +1157,7 @@ BACKGROUND clockTowerOutside
 -> danae_end
 
 = danae_end
+MUSIC Under a Starstruck Moon
 Danae: Wheeee!
 Danae lands in the middle of the pile of feathers that's built up at the base of the clock tower.
 Danae: That was great. Come on down.
@@ -1113,6 +1166,7 @@ You settle amongst the feathers beside her.
 Zeus: Hey, these feathers are pretty handy. That gives me a super duper idea.
 Zeus: Wubadubbadubbaah!
 
+SOUND Shape of a Goat
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a bird!
 
 You can choose from any of the birds of the world
@@ -1242,7 +1296,8 @@ Zeus: I'm on the team. I'm the hoop-dangle-defence-brigade.
 Ganymede: Get out!
 You step back into the changing room. Maybe if you shapeshift instead?
 -> shapeshift_changing
-* [Shapeshift] -> shapeshift_changing
+* [Shapeshift]
+-> shapeshift_changing
 
 =shapeshift_changing
 What will you shapeshift into?
@@ -1733,7 +1788,7 @@ Leda: Why don't you just divorce her?
 Zeus: Ah, it's complicated.
 Leda: It always is. Goodbye, Zeus.
 
-BACKGROUND Olympus
+BACKGROUND olympus
 Hera: Zeus! Time to clean the toilets again, you unfaithful piece of horse sputum!
 Zeus: You know, Helen, I wish I was able to turn HER into a swan.
 Cygnet: Coo!

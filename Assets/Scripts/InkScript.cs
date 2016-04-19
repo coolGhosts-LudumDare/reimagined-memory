@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class InkScript : MonoBehaviour
 {
@@ -233,7 +232,6 @@ public class InkScript : MonoBehaviour
         Sprite[] images;
         if (!characterImages.TryGetValue(character, out images))
         {
-            int a = 0;
             return null;
         }
 

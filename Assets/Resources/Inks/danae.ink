@@ -301,10 +301,10 @@ NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a b
 You can choose from any of the birds of the world
 to be a swan, an eagle, or a cuckoo.
 I know it seems a strangely arbritrary selection while also being oddly specific, but that's simply the nature of your awesome powers. It's not up to me.
-* [I choose Swan]
+* [I'll be a Swan right now]
 Swan: This reminds me of when I went on a bender and accidentally turned into a giraffe. Animals with long necks are so hard to handle.
 -> danae_bye
-* [I choose Eagle]
+* [I'll try out this Eagle]
 Eagle: I feel elated! Delighted! I'm so happy with my lot in life.
 Danae: Well you look exceedingly angry.
 Eagle: Oh really? How about if I do this?
@@ -312,7 +312,7 @@ Eagle: Hmmm?
 Danae: Still angry.
 Eagle: Aww man.
 -> danae_bye
-* [I choose Cuckoo]
+* [I'll choose Cuckoo this time]
 Cuckoo: Hmmm. I don't have much to say. Except this is the BEST DECISION I'VE EVER MADE!!!
 -> danae_bye
 
