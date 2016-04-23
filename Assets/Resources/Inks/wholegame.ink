@@ -50,10 +50,11 @@ Hera: What are you doing here? You should be at university. Learning... how to n
 * [Whinge] Zeus: Heeerrrraaaa! I was just on my waaaaay.
 You decide to make yourself scarce before Hera can say another word. Earth seems like a good idea. -> earth_travel_choice
 * [Accept] Zeus: I know, hun. I just wanted to kiss you goodbye.
-You give Hera a big, soppy wet one and make your way to university. -> earth_travel_choice
-
+You give Hera a big, soppy wet one and make your way to university. 
 
 IMAGE right clear
+
+-> earth_travel_choice
 
 === earth_travel_choice ===
 How do you want to get down to earth?
