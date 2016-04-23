@@ -3,7 +3,11 @@
 = throne
 BACKGROUND olympus
 MUSIC Mounting Olympus
+IMAGE middle Zeus_normal 
+
+
 You sit atop a golden throne at the summit of Mount Olympus as clouds scud by.
+
 * [Bask in your own glory] You are Zeus. The bestest, most lightningy god of the pantheon; the Greek one, at least. Ah, this is the life. Just sitting, basking, -> hera
 * [Look down at the people on earth] -> fig_or_lit
 
@@ -34,6 +38,9 @@ You see what's up by looking down at -> map
 
 =hera
 <> but you're interrupted when Hera arrives.
+
+IMAGE right Hera_normal
+
 * Who['s that?]? Only your life-partner, your rock, your guiding light, the person who doesn't mind you sleeping around. -> to_uni
 * [Give Hera a kiss and a cuddle] You approach Hera with arms wide, lips pouting for a smooch. But Hera raises a hand to stop you. -> to_uni
 * [Quick! Run away from Hera] Before she can see you, you run away. She doesn't go down to earth very often, so that's where you'll go. -> earth_travel_choice
@@ -46,6 +53,7 @@ You decide to make yourself scarce before Hera can say another word. Earth seems
 You give Hera a big, soppy wet one and make your way to university. -> earth_travel_choice
 
 
+IMAGE right clear
 
 === earth_travel_choice ===
 How do you want to get down to earth?
@@ -70,7 +78,11 @@ You look down at the long path down to earth waaaaay in the distance. -> walk
 * [Use lightning] -> lightning
 
 =lightning
+
 SOUND Shape of a Goat
+IMAGE left clear
+IMAGE left Lightning
+
 You leap into the air. At the apex of your jump, you crackle into a bolt of lightning, bright and powerful. You zip down to earth at the speed of light.
 Lightning: KRAKOOOM!
 Lightning: Wheeeeee
@@ -88,6 +100,9 @@ You hear the thunder from your own lightning bolt because physics.
 BACKGROUND exterior
 MUSIC My God Ate My Homework
 
+CLEAR all
+IMAGE left Zeus
+
 You look around you and spot your university campus; the Zeus Is Great, Zeus Am God University (or ZIGZAG U) is the best darn place for schoolin' in the Greek islands, nay, the world! (but what's the difference, eh?)
 * [...] -> uni
 
@@ -95,6 +110,9 @@ You look around you and spot your university campus; the Zeus Is Great, Zeus Am 
 
 Students mill around you, rushing in and out of the doors, some carrying piles of books. If you've seen any college-based teen movie: that.
 CRASH!!!
+
+IMAGE right Io
+
 Io: Oh, s-sorry. Didn't see you there.
 * ["I am Zeus, the great and powerful"]
 Zeus: I am Zeus, the great and powerful. Tremble before my mighty-
@@ -106,6 +124,7 @@ Io: I'm gonna be late for the game. -> game_io
 =io_leave
 Io: Look, I've gotta go. The name's Io. Be seeing you around, OK?
 Zeus: O-OK.
+
 -> hallway
 
 =game_io
@@ -123,8 +142,12 @@ Io: I'm so excited!!! See you around. The name's Io by the by.
 Io heads off to the playing fields, pumping her arm in the air.
 Io: Bulls! Bulls! Bulls!
 You head inside.
+IMAGE right clear
+
 BACKGROUND hallway
 MUSIC A Study In Hot Pink
+
+IMAGE right Leda
 Leda: Hey! Could you hold that door?
 Leda's carrying some long poles on her way outside.
 * ["Let me help you with those"]
@@ -182,10 +205,18 @@ Leda: You're telling me!
 =leda_leave
 Leda: Anyway, I better get going. Those boats aren't going to... row... them- I wish I hadn't started saying that!
 Leda leaves hurriedly, trying to hide her reddening face with the oars.
+
+IMAGE right clear
+
 BACKGROUND lockers
 MUSIC My God Ate My Homework
+
+IMAGE right Ganymede
 You go further into the building, stopping when you see Ganymede at his locker. He's laughing with some teammates.
 Ganymede: Have you heard? Someone's been locked in the tower, I hear she was -
+
+IMAGE left Europa
+
 Europa: Excuse me.
 * ["What is it?"]
 Zeus: What is it?
@@ -200,7 +231,14 @@ Europa: Not really, you're just standing in front of my locker.
 Zeus: Oh, I do apologise.
 Europa: No problem, just...
 Zeus: Oh right, yeah.
+
+IMAGE right clear
+IMAGE middle clear
+IMAGE right Zeus 
+
 You move to the side and realise you've lost sight of Ganymede. Oh well, that can wait for later.
+
+
 * [Talk to Europa]
 Zeus: Hi. I'm Zeus.
 Europa: I know who you are.
@@ -242,9 +280,9 @@ BACKGROUND classroom
 =smell
 but a strange smells reaches your nose. You head off to investigate.
 * [To the Laboratory!]
+
+CLEAR all
 -> lab
-
-
 
 
 === lab ===
@@ -392,7 +430,7 @@ You do as she says and increase your power output again.
 
 Semele: Haha yes! My psychologist said I was a hopeless case who needed shock therapy. Well I'm gettin' it! You like that, Mr Hetherington? I'm getting what I need, and YOU'RE NOT GETTING ANYTHING YOU OVERQUALIFIED HACK! More voltage!!
 
-As you increase the power further the room again begins to fill with the smell of burning skin. You think you can see smoke enemating from Semele's body, but it's hard to tell for sure because you're distracted by the amazing sex you're having.
+As you increase the power further the room again begins to fill with the smell of burning skin. You think you can see smoke emanating from Semele's body, but it's hard to tell for sure because you're distracted by the amazing sex you're having.
 
 Semele: More voltage!
 
@@ -414,8 +452,9 @@ The fire engulfs her completely and she explodes into a (hot) mess. Before you c
 SOUND Form of a Deity
 You sheepishly re-assume your human form (though not as sheepishly, it must be said, as you would if assuming the form of a sheep).
 
+CLEAR right
 IMAGE middle Zeus_normal flip
-IMAGE left Semele_cloud
+IMAGE left Cloud
 
 MUSIC Under a Starstruck Moon
 
@@ -432,7 +471,7 @@ Semele: Nah. I'm completely on board with being a cloud. I'm going to spend my t
 Zeus: Err, right.
 Semele: Don't knock it until you've tried it, voltage boy. This is a blast and a half.
 
-CLEAR right
+CLEAR left
 
 And with that she drifts off into the breeze like an atypically aerodynamic elephant.
 
@@ -444,10 +483,17 @@ You adopt your best shapeshifting pose and clench like you've never clenched bef
 
 Zeus: Zig-a-zig, Aah!
 
+CLEAR middle
+IMAGE middle Cloud
+
 SOUND Shape of a Goat
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a cloud!
 
 Cloud: Hey, that DOES tickle. I'd better revert to my human form before I become overstimulated.
+
+CLEAR middle
+IMAGE middle Zeus
+
 
 SOUND Form of a Deity
 Zeus: Ah, that's better. The reassuring familiarity of dangling flesh.
@@ -503,6 +549,9 @@ Hera: Hmph.
 BACKGROUND outdoor
 MUSIC My God Ate My Homework
 CLEAR all
+IMAGE middle zeus
+IMAGE right Io flip
+
 
 You mooch on over to the playing fields, the sound of a cheering crowd reaching your ears as you walk among some trees.
 Io: You found my secret spot.
@@ -626,6 +675,10 @@ Some students turn to look as they're walking by.
 Well, this is a bit awkward. Maybe you should hide Io's wriggling and writhing from prying eyes.
 But how? Surely one of your transformations could help out now.
 * [Shapeshift into Lightning]
+
+IMAGE middle clear
+IMAGE middle Lightning
+
 SOUND Shape of a Goat
 You clatter into the form of lightning.
 Lightning: I'll blind anyone that tries to sneaks a peek.
@@ -634,16 +687,27 @@ Lightning: Umm, nothing.
 Io: Please don't hurt anyone.
 Lightning: Fine.
 You decide to see if being a cloud would be any better.
+
+IMAGE middle clear
+IMAGE middle Cloud
+
 Cloud: Ah! I can surround you like this, and no one will see through my thick mist.
 No sooner have you done this than Hera appears before you. Gulp.
 -> hera_io
+
 * [Shapeshift into Cloud]
+IMAGE middle clear
+IMAGE middle Cloud
+
 You go all thick and fluffy.
 Cloud: Ah! I can surround you like this, and no one will see through my thick mist.
 No sooner have you done this than Hera appears before you. Gulp.
 -> hera_io
 
 = hide_io
+
+IMAGE right clear
+
 What are you going to do now?
 * [Shapeshift]
 Shapeshifting to any other form will reveal Io, and Hera will certainly not be happy about seeing that.
@@ -658,16 +722,26 @@ Cloud: Just put it on will you? Quickly!
 Io: OK. You don't have to tell me twice.
 SOUND Form of a Deity
 Io scrambles into the bull costume. And just in time; no sooner has she pulled the head on, Hera appears before you.
+
+IMAGE right Bull
+IMAGE left Hera
+
 -> hera_io
 
 = hera_io
 
 MUSIC In the Arms of a Parrot
+
 Hera: Zeus! What are you hiding in there?
 Cloud: I-I'm not Zeus. I'm a fluffy cloud.
 Hera: Zeus. I'm giving you 'til the count of three to become something with a face I can talk to. And probably slap if you're doing what I think you are. 1... 2...
 Cloud: But I'm just-
 You change into human form.
+
+IMAGE middle clear
+IMAGE middle Zeus
+IMAGE right Bull
+
 Zeus: playing hide and seek with my friends.
 Hera: But it's just you and this cow.
 Io: Bull, actually.
@@ -684,6 +758,7 @@ Zeus: You'll have to do better than that, Jeremy!
 -> hera_io_cont
 
 = hera_io_cont
+
 Hera: Hmmm. You've not been having you-know-what with that bull have you?
 Zeus: What? No! What do you think of me?
 Hera: I think you've got an insatiable libido, and if I turn my back for one second, you'll find another poor waif to create more demi-gods with.
@@ -696,13 +771,20 @@ Zeus: I won't, dear.
 Hera: That's good to hear. I'll see you later. But not much later, so don't get any ideas.
 Zeus: No, snookums.
 You blink and she's gone. She didn't even say 'bye'. Bit rude.
+
+IMAGE left clear
+
 MUSIC Under a Moonlit God
+
 * ["You can come out now, Io"]
 Zeus: It's OK. You can come out now, Io.
 She doesn't seem to have heard.
 Zeus: Hey that bull costume saved my bacon just then. I wonder if I could...
 You shake out your hands and legs.
-Zeus: Bar bar bar bar barbara ann.
+Zeus: Bar bar bar, bar Barbara-Ann.
+
+IMAGE middle clear
+IMAGE middle Bull
 
 SOUND Shape of a Goat
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a bull!
@@ -717,8 +799,17 @@ Io: To be honest with you, I'm really more into the costume than real bulls. I d
 Bull: That makes sense.
 SOUND Form of a Deity
 You changed back to human form.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 Zeus: Well, good luck with everything.
 Io: Mmmhmmmm.
+-> io_end
+
+
+=io_end
+
 * [Cruise on over to the swimming pool]
 You walk away and cruise on over to the swimming pool.
 -> europa
@@ -737,7 +828,14 @@ You walk away and cruise on over to the swimming pool.
 BACKGROUND pool
 MUSIC A Study In Hot Pink
 
+CLEAR all
+Image middle Zeus
+
+
 There's one person swimming in the pool. Long strokes making her glide easily through the water. She stops and treads water when she sees you approach.
+
+Image right Europa
+
 Europa: Hey there, handsome. Taken up my offer, have you?
 Zeus: Yeah, I thought you could do with some company in there.
 Europa: Come on in.
@@ -750,18 +848,34 @@ Zeus: You think that's impressive? Get an eyeful of this.
 
 = impressing
 How will you impress Europa?
+
 * [Shapeshift into Lightning]
 SOUND Shape of a Goat
+
+IMAGE middle clear
+IMAGE middle Lightning
+
 Shazam! You throb with electric power.
 Europa: What do you think you're doing? Trying to kill me?!
 Lightning: I just thought-
 Europa: No, you didn't think. Water and lightning and human bodies don't go together well. The results can be rather lethal.
 Lightning: Right, right. I'll try to remember that.
+
 SOUND Form of a Deity
+
 You return to human form.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 -> impressing
+
 * [Shapeshift into Cloud]
 SOUND Shape of a Goat
+
+IMAGE middle clear
+IMAGE middle Cloud
+
 Flimp! You're a cloud. You float over the pool and mingle with the steam rising off the water.
 Cloud: Teeheehee!
 Europa: What's so funny?
@@ -769,10 +883,20 @@ Cloud: It's just so tickly.
 Europa: I guess that is pretty impressive. What else can you do?
 SOUND Form of a Deity
 You glide back over to the poolside and return to human form.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 Zeus: Let me think...
+
 -> impressing
+
 * [Shapeshift into Bull]
 SOUND Shape of a Goat
+
+IMAGE middle clear
+IMAGE middle Bull
+
 Heffalump! You morph into a bull.
 Bull: How does this transmogrification suit your desires?
 Europa: Woah! You're so muscular, so... so beefy!
@@ -797,6 +921,7 @@ Europa: Thank you. I, err... needed that.
 She kisses you on the nose. You feel somewhat dizzy. Stars spin in your eyes.
 Europa: Change back into a human and I'll make it worth your while.
 -> light_get
+
 * [Thrust your hips forward]
 You thrust your hips forward.
 Zeus: Huzzah!
@@ -811,6 +936,10 @@ You shut your eyes to concentrate on your transformation but all you can see is 
 SOUND Shape of a Goat
 Twinkle twinkle! Well something's happened. You've changed form.
 MUSIC Under a Starstruck Moon
+
+IMAGE middle clear
+IMAGE middle Lights
+
 You open your eyes and look at yourself. You see a glimmering mass of lights.
 
 NEW TRANSFORMATION ACQUIRED. You are now able to shapeshift into the form of a light!
@@ -824,6 +953,10 @@ You go to touch Europa's arm but find yourself flying across campus at the speed
 BACKGROUND clockTowerOutside
 
 Light: Woah! I better learn how to control myself like this. I'll become human again before I hurt somebody.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 You transform back into your human appearance. And yes, you're wearing clothes again. I told you, it's complicated.
 You look around and find you're outside a tall clock tower. Didn't you hear Ganymede saying something about someone being inside?
 -> clock_tower
@@ -831,15 +964,12 @@ You look around and find you're outside a tall clock tower. Didn't you hear Gany
 
 
 
-
-
-
-
-
-
 === clock_tower ===
 
 BACKGROUND clockTowerOutside
+CLEAR all
+
+
 
 You approach the tall tower. It's tall. It's a tower. Hold on. I forgot clock.
 Clock tower. The tall clock tower. Tall, towering, and clocky.
@@ -847,6 +977,9 @@ Nice.
 * [Jump]
 You try to jump onto the roof, but only make it a foot (30.48cm) off the ground. I don't know why you bothered trying. So you just walk in through the door.
 -> clock_interior
+
+IMAGE middle Zeus
+
 * [Use the door]
 You grip the doorknob firmly in your hand and turn it. You push against the door. But nothing happens.
 You try pulling the door. Something happens. Shock horror: the door opens! Who would've believed it, eh? You skulk inside like a typoed skunk.
@@ -861,6 +994,7 @@ At the top is a door, a beam of light shines through a keyhole, and - under the 
 * [Try the door] You turn the handle of the door but it won't budge, no matter which way you try. This door is locked. -> danae_talk1
 * ["Hello? Anyone in there?"]
 Zeus: Hello? Anyone in there? -> danae_talk1
+
 
 = danae_talk1
 The scrabbling sound comes closer to the door and the thin light is extinguished.
@@ -903,22 +1037,35 @@ Zeus: I better think quickly
 * [Shapeshift] Oh, this might actually work. Go on then. -> shapeshift_danae
 
 = shapeshift_danae
+IMAGE middle clear
+IMAGE middle Zeus
+
 What will you shapeshift into?
 * [Lightning]
 You decide to become Lightning.
+
+IMAGE middle clear
+IMAGE middle Lightning
+
 Zeus: Remain standing back!
 SOUND Shape of a Goat
 Your skin frizzles with electric energy. Wham! You're a lightning bolt.
 Lightning: I hadn't thought this through!
 You earth to the nearest metal object: the door handle. It promptly melts leaving a red hot lump that's no use to anyone anymore. Good work.
 -> shapeshift_danae
+
 * [Cloud]
 Zeus: OK, you don't need to be as standing back now. I don't think even I could hurt you while being a soft billowy cloud.
 Danae: You what?
 Zeus: Oh, forget it.
 SOUND Shape of a Goat
+
+IMAGE middle clear
+IMAGE middle Xloud
+
 Puff! You're a cloud.
 -> cloud_danae.
+
 * [Bull] You will take on the form of a bull.
 This could be fun. Let me just get some popcorn.
 ...
@@ -926,16 +1073,27 @@ OK.
 Zeus: Could you please go as far back and remain as un-matador-like as you can?
 Danae: I don't like the sound of this.
 Ignore her. This is the best idea ever.
+
 SOUND Shape of a Goat
+
+IMAGE middle clear
+IMAGE middle Bull
+
 Flink! You're a bull. The wooden landing below you creaks with the sudden weight of your bulk.
 -> bull_landing
+
 * [Light] You're gonna give this Light thing a try.
 Zeus: Stand back. Unless you like being tanned.
 Zeus: That might be how this works, I'm not really sure.
 Zeus: Anyway. Stand back. Away from the door.
 Danae: *mumble mumble*
 Zeus: What? I didn't hear you cos
+
 SOUND Shape of a Goat
+
+IMAGE middle clear
+IMAGE middle light
+
 Light: I just changed into a shower of gold light *sparkle sparkle*
 Danae: R-right. Anyway. If you could go and get me some help that would be great. Emphasis on 'go'.
 -> light_danae
@@ -945,6 +1103,10 @@ Danae: R-right. Anyway. If you could go and get me some help that would be great
 Cloud: Wind! My greatest enemy. And also ally. Actually, I'm kinda lukewarm to wind, if I'm honest.
 There's a strong air current blocking your passage through the keyhole. Well that sucks. Or blows, amirite?
 Cloud: I might as well change back.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 Danae: What did you say?
 Zeus: Nothing.
 -> shapeshift_danae
@@ -974,6 +1136,7 @@ Danae: Growing on my nerves! Would you stop that and just do some rescuing? Plea
 * [Zip through the keyhole] You bundle your photons together and point a ray through the keyhole.
 Before you know it, you're on the other side.
 -> in_clock
+
 * [Just stay where I am, thanks] You remain in place. As much as a wild bundle of particles can remain in one place, anyway.
 In fact, anyone with a passing interest in particle physics will know how particles can suddenly be somewhere else entirely.
 And lo and behold, wouldn't you know it, at this very instant all of your particles have shifted over to the other side of the door. What are the chances?
@@ -981,7 +1144,9 @@ And lo and behold, wouldn't you know it, at this very instant all of your partic
 
 = in_clock
 BACKGROUND clockTowerInside
+IMAGE right Danae
 MUSIC In the Arms of a Parrot
+
 Finally inside the inner workings of the clock tower, you can see Danae for the first time. Unfortunately the moment is slightly ruined by the mass of dead birds covering the floor.
 Danae: I-is that you?
 Light: Of course. My name's Zeus, what's yours?
@@ -1013,10 +1178,14 @@ Danae: Well, I could have elecrocuted them. That's always fun to watch.
 Light: Not what I meant.
 Danae: I know.
 Light: There's an open panel up there
-Danae: I've climbed up and had a look. It's no good, there's a shear drop outside.
+Danae: I've climbed up and had a look. It's no good, there's a sheer drop outside.
 Danae: Maybe if it was on the other side I could dive into the river, but sadly it's hard ground below.
 Light: Hey
+
 SOUND Form of a Deity
+IMAGE middle clear
+IMAGE middle Zeus
+
 Zeus: I think I've got a plan.
 Danae: Oh, is that what you really look like?
 Zeus: Kinda. Do you like it?
@@ -1035,31 +1204,51 @@ Zeus: Why tell you when I can show you?
 -> shapeshift_interior
 
 = shapeshift_interior
+IMAGE middle clear
+IMAGE middle ZEUS
+
 What will you shapeshift into?
 * [Lightning]
 Zeus: Keep well clear and make sure you're not touching anything metal.
 Danae: Er... OK.
 SOUND Shape of a Goat
+IMAGE middle clear
+IMAGE middle Lightning
+
 CHOOM! You're lightning, you are.
 -> lightning_interior
+
 * [Cloud] You foof into a cloud and are immediately sucked into the fan. After spinning you around a couple of times, it spits you out and the wind forces you back out through the keyhole.
 BACKGROUND door
 SOUND Shape of a Goat
+IMAGE middle clear
+IMAGE middle Cloud
 Once again on the wrong side of the door, you shapeshift into light to get back to Danae.
+IMAGE middle clear
+IMAGE middle Cloud
 BACKGROUND clockTowerInside
 SOUND Form of a Deity
 Zeus: That didn't go as I expected. Maybe if I try...
 -> shapeshift_interior
+
 * [Bull] Your muscles ripple and alter as you become the bull. You dip your head, aiming for the door. You scrape a hoof along the floor.
+
+IMAGE middle clear
+IMAGE middle Bull
+
 You're ready to charge.
 Forward you go, speeding through the room, keeping the door in your sights. But your horns get tangled in the fan. You try to shake free, but only succeed in moving the fan around. It blows feathers about the room. You disentangle yourself from the fan, which settles back into its original position.
 Bull: Hmmm...
 Zeus: That wasn't quite right.
 -> shapeshift_interior
+
 * [Light] You become a shower of light again.
+IMAGE middle clear
+IMAGE middle Light
 Danae: How is this different to how you just were?
 Light: It isn't.
 Zeus: Let me try something else...
+
 -> shapeshift_interior
 
 = lightning_interior
@@ -1069,6 +1258,10 @@ Zeus: Let me try something else...
 Lightning: That was awesome!
 Danae: What'd I tell you? Electrocution's the way to go with birds.
 As the feathers settle onto the floor, you transform back.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 Zeus: Now for the next stage of my plan.
 Danae: You're not going to change into something again are you?
 Zeus: As a matter of fact, I am.
@@ -1081,6 +1274,7 @@ SOUND Shape of a Goat
 You crackle into a bolt of lightning and touch another of the birds, but it's no good. They're all de-feathered. And trying to Frankenstein them simply won't work. You'll have to use a different form.
 SOUND Form of a Deity
 -> next_stage
+
 * [Cloud]
 SOUND Shape of a Goat
 You shoomf into a cloud and are immediately sucked into the fan and out through the keyhole.
@@ -1090,15 +1284,19 @@ BACKGROUND clockTowerInside
 Another angle will have to be considered.
 SOUND Form of a Deity
 -> next_stage
+
 * [Bull]
 SOUND Shape of a Goat
 You growl into a bull.
 -> bull_interior
+
 * [Light]
 SOUND Shape of a Goat
 You shimmer into light. You feel very sparkly but ultimately useless in the current situation. Maybe choose a different form.
 SOUND Form of a Deity
 -> next_stage
+
+
 
 = bull_interior
 What will you do now?
@@ -1139,6 +1337,10 @@ You let the last few feathers fall to the floor before releasing the fan.
 Bull: That should give us a sufficiently cushioned landing to prevent injury.
 Danae: Thank you. I can finally get out of here.
 SOUND Form of a Deity
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 * ["What's the hurry?"]
 Zeus: What's the hurry? I was just getting to know you.
 Danae: Well, I did kinda like you when you were that shower of gold light.
@@ -1173,9 +1375,13 @@ You can choose from any of the birds of the world
 as long as it's swan, eagle, or cuckoo.
 I know it seems a strangely arbritrary selection while also being oddly specific, but that's simply the nature of your awesome powers. It's not up to me.
 * [I'll be a Swan right now]
+IMAGE middle clear
+IMAGE middle Swan
 Swan: This reminds me of when I went on a bender and accidentally turned into a giraffe. Animals with long necks are so hard to handle.
 -> danae_bye
 * [I'll try out this Eagle]
+IMAGE middle clear
+IMAGE middle Eagle
 Eagle: I feel elated! Delighted! I'm so happy with my lot in life.
 Danae: Well you look exceedingly angry.
 Eagle: Oh really? How about if I do this?
@@ -1184,15 +1390,30 @@ Danae: Still angry.
 Eagle: Aww man.
 -> danae_bye
 * [I'll choose Cuckoo this time]
+IMAGE middle clear
+IMAGE middle Cuckoo
+
 Cuckoo: Hmmm. I don't have much to say. Except this is the BEST DECISION I'VE EVER MADE!!!
 -> danae_bye
 
 = danae_bye
 You flap your wings to test them, and are suddenly launched into the air. This will take some getting used to.
 Danae: Wait, I haven't told you why I was locked in a room with an industrial fan! You see, I was just getting my...
+
+IMAGE right clear
+
 But you're too far away to hear the rest. Oh well, I'm sure it was unimportant but completely logical.
 You fly back to campus, and turn back into human form once you've landed.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 Hera: Hey there, hun.
+
+IMAGE middle flip
+IMAGE left Hera
+
+
 Zeus: Gah! Where did you spring from?
 Hera: Does it matter? I've just popped down to tell you it's nearly home time.
 Zeus: Can't I stay out late tonight?
@@ -1227,7 +1448,13 @@ She takes your hand and leads you back up to your throne room.
 === gymnasium ===
 
 BACKGROUND gym1
+CLEAR all
+IMAGE middle Zeus
+
 You enter the gym where the basketball team are practising. The large space smells of sweat and is filled with the sound of sneakers squeaking on the floor, in the centre of which is a logo of an eagle holding a basketball. You can see Ganymede shooting hoops from the free-throw line.
+
+IMAGE right Ganymede
+
 Ganymede: He shoots...
 Ganymede: He scores!
 Zeus: Hey, Ganymede.
@@ -1249,27 +1476,72 @@ Again, he turns and goes to the other end.
 -> shapeshift_courtside
 
 = shapeshift_courtside
+
+IMAGE middle clear
+IMAGE middle Zeus
+
 What will you shapeshift into?
-* [Lightning] You transform into a bolt of lightning and make the lights flicker. That's about it really. I'm sure you can do better than that.
+
+IMAGE middle clear
+IMAGE middle Lightning
+
+* [Lightning] 
+
+IMAGE middle clear
+IMAGE middle Lightning
+
+You transform into a bolt of lightning and make the lights flicker. That's about it really. I'm sure you can do better than that.
 -> shapeshift_courtside
-* [Cloud] You're a cloud now. Near some people training for basketball. Erm... what did you think would happen next? Better try something else.
+
+* [Cloud]
+IMAGE middle clear
+IMAGE middle Cloud
+
+You're a cloud now. Near some people training for basketball. Erm... what did you think would happen next? Better try something else.
 -> shapeshift_courtside
-* [Bull] You become that big ol' bull and promptly lay a cow pat down on the gleaming court. You dirty animal, you.
+
+* [Bull]
+
+IMAGE middle clear
+IMAGE middle Bull
+
+You become that big ol' bull and promptly lay a cow pat down on the gleaming court. You dirty animal, you.
 -> cow_pat
-* [Light] You give the players a quick lightshow. Some of them stop to look at it, but without musical accompaniment they soon lose interest. Try something else.
+
+* [Light]
+IMAGE middle clear
+IMAGE middle Light
+
+You give the players a quick lightshow. Some of them stop to look at it, but without musical accompaniment they soon lose interest. Try something else.
 -> shapeshift_courtside
-* [Swan] As you become a swan, one of the basketballs comes flying towards your head. You instictively flick up with your long neck, knocking the ball into the basket and scoring a three-pointer. The coach sees this, and offers you the team captaincy. Sadly, you must decline; you've got to get back at Ganymede right now.
+
+* [Swan]
+IMAGE middle clear
+IMAGE middle Swan
+As you become a swan, one of the basketballs comes flying towards your head. You instictively flick up with your long neck, knocking the ball into the basket and scoring a three-pointer. The coach sees this, and offers you the team captaincy. Sadly, you must decline; you've got to get back at Ganymede right now.
 -> shapeshift_courtside
-* [Eagle] Your form changes to that of the logo in centre court.
+
+* [Eagle]
+IMAGE middle clear
+IMAGE middle Eagle
+
+Your form changes to that of the logo in centre court.
 Ganymede: Hey! It's our mascot, Eagletonstenman.
 He comes over, puts a ball in your talon and takes a selfie with you. While crouched next to you he whispers
 Ganymede: The things I'd do to you if we were alone...
 Then he gets up and goes back to training. Well, that was... enlightening.
 -> shapeshift_courtside
-* [Cuckoo] As a cuckoo, you fly around the gym. You don't learn or gain anything from doing this, but it was nice to stretch your wings and get above the clingy smell of sweat.
+
+* [Cuckoo]
+IMAGE middle clear
+IMAGE middle Cuckoo
+As a cuckoo, you fly around the gym. You don't learn or gain anything from doing this, but it was nice to stretch your wings and get above the clingy smell of sweat.
 -> shapeshift_courtside
 
 = cow_pat
+IMAGE middle clear
+IMAGE middle Zeus
+
 You change back to human form before anyone can become suspicious. I mean, you are still standing next to a big, dirty cow pat. But no one can possibly suspect you've laid that, can they?
 * [Go and talk to Ganymede] You join Ganymede at the other end of the court.
 Zeus: Hey there, champ-
@@ -1284,7 +1556,11 @@ He storms towards you. -> slippage
 = slippage
 But he slips on the cow pat and ends up sitting in the mess, his legs and hands covered in thick, brown goop.
 Ganymede: Uch! Uhghh! Blugrh! Not AGAIN!
+
+IMAGE right clear
+
 He unsteadily gets to his feet, and marches for the changing room. You follow.
+
 
 // BACKGROUND changingroom
 
@@ -1300,25 +1576,55 @@ You step back into the changing room. Maybe if you shapeshift instead?
 -> shapeshift_changing
 
 =shapeshift_changing
+
+IMAGE middle Clear
+IMAGE middle Zeus
+
 What will you shapeshift into?
-* [Lightning] Crackle! You're lightning. You're about to go into the shower area, but then have a nagging feeling at the back of your mind.
+
+* [Lightning]
+IMAGE middle clear
+IMAGE middle Lightning
+
+Crackle! You're lightning. You're about to go into the shower area, but then have a nagging feeling at the back of your mind.
 Lightning: Do water and lightning and human bodies goes together well?
 You take a moment to mull this over.
 Lightning: Hmmm. I can't really remember. Better not risk it. I don't want to harm that fine body.
 That was close! You could have killed poor Ganymede. Maybe a different form would be of use here.
 -> shapeshift_changing
-* [Cloud] You morph into a cloud. Looking passably like the steam coming from the showers, you go inside.
+
+* [Cloud]
+IMAGE middle clear
+IMAGE middle Cloud
+
+You morph into a cloud. Looking passably like the steam coming from the showers, you go inside.
 -> in_showers
-* [Bull] Reforming into the bull, you position yourself over Ganymede's discarded clothes. You defecate directly onto them, filling the sneakers and covering every stitch in excrement. Nice work. You feel satisfied and emptier in the bowels, but really you want to be another form to get wit' Ganymede.
+
+* [Bull]
+IMAGE middle clear
+IMAGE middle Bull
+
+Reforming into the bull, you position yourself over Ganymede's discarded clothes. You defecate directly onto them, filling the sneakers and covering every stitch in excrement. Nice work. You feel satisfied and emptier in the bowels, but really you want to be another form to get wit' Ganymede.
 -> shapeshift_changing
-* [Light] A little flicker here, a little flicker there. You is light, right? And you is well sparkly. You sparkle into the shower area.
+
+* [Light]
+IMAGE middle clear
+IMAGE middle Light
+
+A little flicker here, a little flicker there. You is light, right? And you is well sparkly. You sparkle into the shower area.
 Ganymede: Wow! I wish I could be as sparkly as that.
 Light: You can. Let me just cover you in my sparkly jizz- Jazz! I mean 'jazz'.
 Ganymede: No, don't come near me. I'm covered in fecal matter. It no nice.
 Light: I suppose you're right.
 Another plan then.
 -> shapeshift_changing
-* [Swan] You swan into the shower area.
+
+* [Swan]
+
+IMAGE middle clear
+IMAGE middle Swan
+
+You swan into the shower area.
 Ganymede: Oh hey, swan. Coming to clean your feathers?
 Swan: That's it, yeah. Gotta keep clean.
 Ganymede: Too right.
@@ -1329,14 +1635,26 @@ Swan: No, that's OK. I wanted to shower with you. Maybe next time, huh?
 Ganymede: Yeah, that'd be nice.
 Slightly crestfallen, you head back out to think of another way to get near Ganymede.
 -> shapeshift_changing
-* [Eagle] As an eagle, you hop into the shower area.
+
+* [Eagle]
+
+IMAGE middle clear
+IMAGE middle Eagle
+
+As an eagle, you hop into the shower area.
+
 Ganymede: Woah! Get out, eagle. You don't want the water spoiling your feathers.
 Eagle: It's OK, I'll be fine.
 Ganymede: No, man. I want you to stay pristine. I've got plans for you. Just go back out, and I'll be with you as soon as I'm clean.
 You do as he says, but you think back to what Leda said about Ganymede taking hours to shower - and that's probably when he doesn't have to scrub off cow dung!
 So you decide to be pro-active. Another shapeshift!
 -> shapeshift_changing
+
 * [Cuckoo]
+
+IMAGE middle clear
+IMAGE middle Cuckoo
+
 Cuckoo: Cuckoo. Cuckoo.
 Cuckoo: Cuckoo. Cuckoo. Cuckoo.
 Ganymede: Could you stop that? It's really annoying.
@@ -1344,7 +1662,14 @@ Cuckoo: Sorry.
 You'll have to think of something else.
 -> shapeshift_changing
 
+
+
+
+
 = in_showers
+
+IMAGE right GanymedeNaked
+
 You wrap your molecules around Ganymede's glistening body. He's too busy cleaning to notice.
 Ganymede: Clean, clean, clean. Gotta get clean.
 Cloud: You look clean to me.
@@ -1357,13 +1682,21 @@ Cloud: OK. Well, I'm your clean spirit guide seer helper guy. And I say you are 
 Ganymede: Nah, I'm not. I've got to be shining. Sparkling. Glistening like this just ain't good enough.
 * ["Maybe I can help you there"]
 Cloud: Maybe I can help you there.
-Ganymede: Oh, I have my ways.
+Ganymede: Help me? How?
+Cloud: Oh, I have my ways.
 And those ways are shapeshifting!
 -> shapeshift_shower
 
+
 = shapeshift_shower
+
 What will you shapeshift into this time? You can't be an animal here because you're surrounding Ganymede. He'd either explode or be crushed.
-* [Lightning] You like to live dangerously so you become a streak o' lightnin'.
+* [Lightning]
+
+IMAGE middle clear
+IMAGE middle Lightning
+
+You like to live dangerously so you become a streak o' lightnin'.
 Ganymede: GGGgggggzzzzzZZZZAAAHHHH!!!!!
 You electrocute Ganymede. Now he's dead.
 Lightning: Whoops!
@@ -1371,7 +1704,13 @@ On closer inspection of his body, Ganymede's heart is fibrillating. The right vo
 Before Ganymede regains consciousness, you morph back into a cloud.
 Amazingly - if unsurprisingly - Ganymede awakes with no ill-effects or memory of what just occurred.
 -> shapeshift_shower
-* [Light] Your sparkly light settles on Ganymede's sculpted form.
+
+* [Light] 
+
+IMAGE middle clear
+IMAGE middle Light
+
+Your sparkly light settles on Ganymede's sculpted form.
 Ganymede: Wow! I've never been so shiningly clean.
 Light: Yeah, you look great. So now it's time you got out of the shower, matey. You don't want wrinkly skin ruining your look.
 Ganymede: Hey, you're right. I'll just grab a towel.
@@ -1386,24 +1725,58 @@ You move away from Ganymede standing resplendent with naught on but a towel arou
 
 = shapeshift_for_sex
 So what will you turn into now?
-* [Lightning] You crackle with electric energy.
+
+* [Lightning]
+
+IMAGE middle clear
+IMAGE middle Lightning
+
+You crackle with electric energy.
 Ganymede: You'd go down a storm with the Olympian Bolts, but - them being my greatest rivals - I ain't exactly turned on.
 -> shapeshift_for_sex
-* [Cloud] You become a loose collection of vapour.
+
+* [Cloud]
+
+IMAGE middle clear
+IMAGE middle Cloud
+
+You become a loose collection of vapour.
 Ganymede: Is that my clean spirit guide seer helper guy? You're helpful and all, but I don't really get how the logistics would work here.
 Cloud: I could show you.
 Ganymede: Nah, you're alright.
 -> shapeshift_for_sex
-* [Bull] You heave with bovine bulk.
+
+* [Bull]
+
+IMAGE middle clear
+IMAGE middle Bull
+
+You heave with bovine bulk.
 Ganymede: Impressive, but not really my thing. Maybe one of the Cretan Bulls would like that. But not for me, thanks.
 -> shapeshift_for_sex
-* [Light] You go all sparkly again.
+
+* [Light]
+
+IMAGE middle clear
+IMAGE middle Light
+
+You go all sparkly again.
 Ganymede: Seen that. Still not interested.
 -> shapeshift_for_sex
+
 * [Swan] You become a magnificent swan.
+IMAGE middle clear
+IMAGE middle Swan
+
 Ganymede: Oh hey, swan. You're cute and all, but I prefer my birds more... predatory.
 -> shapeshift_for_sex
-* [Eagle] Your aquiline splendour causes Ganymede to take a step back.
+
+* [Eagle] 
+
+IMAGE middle clear
+IMAGE middle Eagle
+
+Your aquiline splendour causes Ganymede to take a step back.
 Ganymede: You- you're beautiful.
 Eagle: I feel wonderful.
 Ganymede rushes towards you, scooping you up in his arms. His towel drops with the movement. He strokes your curved beak.
@@ -1436,17 +1809,37 @@ You soar up towards the heights of Mount Olympus.
 
 BACKGROUND olympus
 
+
+
 At the same time, you each reach the pinnacle of your respective activities.
-You alight beside your golden throne, letting Ganymede recover in the seat while you shapeshift back to your godly glory. You hear movement behind you.
+You alight beside your golden throne, letting Ganymede recover in the seat while you shapeshift back to your godly glory. 
+
+CLEAR all
+IMAGE left GanymedaNaked
+IMAGE middle Zeus
+
+You hear movement behind you.
+
+IMAGE right Hera flip
+
 Hera: Zeus! What's going on here?
 Zeus: What? Nothing. Why would you think something's happening? I've just got back from university. I had a very productive day.
 Reproductive day, more like.
 -> olympus_with_ganymede
+
 * [Cuckoo]
+
+IMAGE middle clear
+IMAGE middle Cuckoo
+
 Cuckoo: Cuckoo. Cuckoo.
 Ganymede: That's not going to work. You're just really annoying.
 Cuckoo: Cuckoo.
 -> shapeshift_for_sex
+
+
+
+
 
 =olympus_with_ganymede
 Hera: So who is that?
@@ -1460,6 +1853,9 @@ Hera: Yes, that was an odd rule you imposed.
 Zeus: Oh, you don't want to be around the finest specimens of mankind while they're getting all sweaty running around and fighting. It's so smelly for a start.
 Hera: I'll have to take your word for it.
 Hera: Well, I'm going to bed. I hope you'll join me soon and won't stay up too late 'drinking wine'.
+
+IMAGE right clear
+
 As she leaves, Ganymede rises from your throne.
 Ganymede: You know, I think she might be suspicious of our relationship.
 Zeus: Pish! She's never caught me before.
@@ -1484,13 +1880,13 @@ You sit down on your golden throne, thinking about the day you've just had, cons
 
 
 
-
-
-
-
 === olympus_with_hera ===
 
 BACKGROUND olympus
+
+CLEAR all
+IMAGE middle Zeus
+IMAGE middle Hera flip
 
 Zeus: *yawn* What a long day! I am going to sleep well tonight. G'night, luv.
 Hera: Oh, Zeus! You used to be so romantic. Tricking me into sleeping with you. Keeping me sweet by naming illegitimate children after me.
@@ -1499,17 +1895,32 @@ Zeus: It's one of THOSE nights is it? OK, I can show you romantic. Watch this.
 
 = romance
 How will you romance your wife this time? She's always liked your shapeshifting.
+
 * [Lightning]
+
+IMAGE middle clear
+IMAGE middle Lightning
+
 Lightning: Oh, honey. Wanna put the spark back in our relationship?
 Hera: Lightning, Zeus? I've seen it so many times before.
 That didn't work.
 -> romance
+
 * [Cloud]
+
+IMAGE middle clear
+IMAGE middle Cloud
+
 Cloud: Baby, I can take you to cloud nine.
 Hera: We're at the top of a mount(ain). Surrounded by clouds. I'm sick of the sight of them.
 That could have gone better.
 -> romance
+
 * [Bull]
+
+IMAGE middle clear
+IMAGE middle Bull
+
 Bull: My love for you is strong as a bull.
 Hera: I'm supposed to be attracted to this, am I?
 Bull: Well, it worked with those humans...
@@ -1517,22 +1928,44 @@ Hera: What did you say?
 Zeus: Nothing, sweetness.
 You'll have to think of something else.
 -> romance
+
 * [Light]
+
+
+IMAGE middle clear
+IMAGE middle Light
+
 Light: You light up my life.
 Hera: Not good enough, Zeus.
 Wow, she really didn't like that, huh?
 -> romance
+
 * [Swan]
+
+IMAGE middle clear
+IMAGE middle Swan
+
 Swan: I'll never go swanning off when you're by my side.
 Hera: That's because when you're by my side I'm able to keep my eye on you and you can't be your usual unfaithful self.
 Oops, that one backfired.
 -> romance
+
 * [Eagle]
+
+IMAGE middle clear
+IMAGE middle Eagle
+
 Eagle: It should be ill-eagle how much I love you.
-Hera: I'll  gladly put you in prison if you come up with another pun as terrible as that.
+Hera: I'll gladly put you in prison if you come up with another pun as terrible as that.
 Uh-oh! I'm sure she doesn't mean it.
 -> romance
+
+
 * [Cuckoo]
+
+IMAGE middle clear
+IMAGE middle Cuckoo
+
 Cuckoo: Cuckoo. Cuckoo.
 Hera: Oh, treasure!
 Cuckoo: Cuckoo. Cuckoo. Cuckoo.
@@ -1559,51 +1992,112 @@ Some time later you lay in bed, thinking about the day you've just had, consider
 
 BACKGROUND rowingClub
 
-You make your way down to the rowing club. There's some kind of race carnival on, and the club is full of people with the kind of taut, athletic bodies that can only be the product of a lifestyle you despise.
+CLEAR all
+IMAGE middle Zeus
 
-You mill around for a bit but you can't find Leda anywhere so you immediately decide to resort to shape-shifting, which by now has become your standard response to even the slightest obstacle.
+You make your way down to the rowing club. There's some kind of race carnival on, and the club is full of people with the kind of taut, athletic bodies that can only be the product of the kind of lifestyle you despise.
+
+You mill around for a bit, but you can't find Leda anywhere so you immediately resort to shape-shifting (which by now has become your standard response to even the slightest obstacle).
 
 -> shapeshift_leda
 
 =shapeshift_leda
 * [Cloud]
+
+IMAGE middle clear
+IMAGE middle Cloud
+
 Good idea! You can float around in the sky and look for Leda. At least that's the plan. Unfortunately, there are so many people around that you just end up being constantly inhaled and exhaled by a bunch of annoyingly attractive athletes. Better try a different approach.
 -> shapeshift_leda
 
-* [Bull] You turn into your bull form. Immediately a woman next to you screams "OH MY GOD, IT'S A BULL!!" and a massive panic ensues. Well, what did you expect? You charge your way through the crowd and duck behind one of the buildings to revert to human form. Wearing your best nonchalant face, you stroll back out to the crowd.
+* [Bull]
 
--> shapeshift_leda
-* [Light] Yes! By turning into a bright ball you light you reveal... absolutely nothing. It's already broad daylight here and as a result you're barely visible. You quietly morph back to your human form.
--> shapeshift_leda
+IMAGE middle clear
+IMAGE middle Bull
 
-* [Lightning] For a moment you consider the spectacular show that would entail if you were to shapeshift into a bolt of lightning and dive into the river. You decide against it; you don't want to risk the safety of the people around you or even worse, yourself.
+You turn into your bull form. Immediately a woman next to you screams "OH MY GOD, IT'S A BULL!!" and a massive panic ensues. Well, what did you expect? You charge your way through the crowd and duck behind one of the buildings to revert to human form. 
 
--> shapeshift_leda
+IMAGE middle clear
+IMAGE middle Zeus
 
-* [Cuckoo] You turn in to a cuckoo and almost immediately are trampled underfoot by the crowds. This was a particularly stupid idea. You wait for a gap in the traffic and morph back.
-
--> shapeshift_leda
-
-* [Swan] You briefly morph into a swan, which gives you a spectacular view of the crotch of everyone walking by. Living the dream, Zeus.
-
+Wearing your best nonchalant face, you stroll back out to the crowd.
 -> shapeshift_leda
 
+* [Light]
 
-* [Eagle] You decide to ditch the crowds altogether. You shapeshift into an eagle and launch yourself into the sky as if in a slow motion sequence from an eighties power ballad. Excellently your eagle form comes complete with super sharp bird vision, allowing you to survey the entire area in plot-serving detail. You make a mental note to remember this the next time you leave your glasses at the pub.
+IMAGE middle clear
+IMAGE middle Light
 
-At first you have trouble finding Leda, until you realise she's in the spot you should have looked in the first place. And the spot you should have looked *is* the first place.
+Yes! By turning into a bright ball you light you reveal... absolutely nothing. It's already broad daylight here and as a result you're barely visible. You quietly morph back to your human form.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
+-> shapeshift_leda
+
+* [Lightning]
+
+For a moment you consider the spectacular show that would entail if you were to shapeshift into a bolt of lightning and dive into the river. You decide against it; you don't want to risk the safety of the people around you (or worse, yourself).
+-> shapeshift_leda
+
+* [Cuckoo]
+
+IMAGE middle clear
+IMAGE middle Cuckoo
+
+Cuckoo: Cuckoo! Cuckoo!
+
+You turn in to a cuckoo and almost immediately are trampled underfoot by the crowds. This was a particularly stupid idea. You wait for a gap in the traffic and morph back.
+
+IMAGE middle clear
+IMAGE middle Zeus
+
+-> shapeshift_leda
+
+* [Swan] 
+
+IMAGE middle clear
+IMAGE middle Swan
+
+You briefly morph into a swan, which gives you a spectacular view of the crotch of everyone walking by. Living the dream, Zeus.
+
+-> shapeshift_leda
+
+* [Eagle]
+
+IMAGE middle clear
+IMAGE middle Eagle
+
+You decide to ditch the crowds altogether. You shapeshift into an eagle and launch yourself into the sky as if in a slow motion sequence from an eighties power ballad. Excellently your eagle form comes complete with super sharp bird vision, allowing you to survey the entire area in plot-serving detail. You resolve to remember this the next time you accidentally leave your glasses at the pub.
+
+At first you have trouble finding Leda, until you realise she's in the spot you should have looked in the first place. And the spot you should have looked *is* first place.
 
 -> leda_wins
 
 =leda_wins
 
-You descend and land amongst a section of the crowd cheering by the finish line. Different parts of the audience are still dutifully cheering their loved ones on but it's clear that this is a run race: one kayak surges ahead of the pack and speeds past the line with the next contender still several boat lengths away. 
+You descend and land amongst a section of the crowd cheering by the finish line. Different parts of the audience are still dutifully cheering their loved ones on but it's clear this is a run race: one kayak surges past the finished line with the next contender still several boat-lengths away. 
 
-By the time the boat slows to a stop by the pier you've already reverted to human form. Leda spots you and grins as her teammates stand up and begin to disembark. "You were carrying them!" you say, responding with a little grin of your own. "Great!" she retorts without missing a beat. "Now you can carry me."
+IMAGE middle clear
+IMAGE middle Zeus
 
-Taking her cue, you step into the boat and she wraps her arms around you. You lift her up and carry her with both arms to the end of the pier where her coach waits with her wheelchair. She barely has time to shout out a "Thanks!" before she's whisked off to have a multitude of photos taken with her team. You slump yourself into a nearby chair and watch the commotion from a safe distance.
+By the time the boat slows to a stop by the pier you've already reverted to human form. Leda spots you and grins as her teammates stand up and begin to disembark. 
+
+
+IMAGE middle clear
+IMAGE right Leda flip
+
+"You were carrying them!" you say, responding with a little grin of your own. "Great!" she retorts without missing a beat. "Now you can carry me."
+
+Taking her cue, you step into the boat and she wraps her arms around you. You lift her up and carry her with both arms to the end of the pier where her coach waits with her wheelchair. She barely has time to shout out a "Thanks!" before she's whisked off to have a multitude of photos taken with her team. 
+
+IMAGE right clear
+
+You slump yourself into a nearby chair and watch the commotion from a safe distance.
 
 After around twenty minutes, by which time you are certain that the media pack have taken All Of The Photos, Leda wheels her way over to you. 
+
+IMAGE left Leda
 
 Leda: Well, you're still here so I guess you're waiting for me.
 Zeus: How do you know that? I might be here for the races.
@@ -1615,6 +2109,10 @@ Leda: You wanna get out of here? I'm going to pre-emptively assume you'll say ye
 
 And with that she charges towards you, knocking you over and into her chair. You scramble to right yourself while she continues to roll through the crowd, seemingly without regard for the people crossing her path but somehow always finding a path through. She hoots with glee with every near-miss while you cling to the chair terrified beyond your wits. Eventually the crowd thins and you come to a quiet part of a river, away from the boat club.
 
+CLEAR ALL
+IMAGE middle Leda
+IMAGE right Zeus flip
+
 Leda: Enjoy the ride?
 Zeus: You what? You could have killed us out there.
 Leda: Aww, it's okay. You can thank me later.
@@ -1623,42 +2121,45 @@ Leda: Just a quiet place where I come to be alone. Away from all that bullshit.
 Zeus: It's beautiful here. Wait, you come here to be alone? Maybe I should leave.
 Leda: No! I want to show you something.
 
+IMAGE middle flip
+
 Leda begins to wheel towards an alcove of trees a few hundred yards away but suddenly stops.
-
 Leda: HEY GET AWAY FROM THAT!!
-
 She continues furiously towards the alcove. Confused, you run after her.
-
 Leda: I SAID KEEP AWAY, YOU JERKS!
-
 As you reach the alcove you see a group of three Rough Looking Dudes(tm) standing around something you can't see. 
 
-Asshole: Oh look! A little crippled girl thinks she can tell me what to do!
+IMAGE left Asshole
 
+Asshole: Oh look! The little cripple thinks she can tell me what to do!
 Leda: Just fuck off, okay?
-
 Asshole: Well, that does it.
-
 He strides up to Leda and kicks her wheelchair over, sending her flying from her seat. 
+
+CLEAR ALL
+
+IMAGE right Leda flip
+IMAGE middle Zeus flip
 
 Zeus: Hey!
 
 You rush over to Leda to help her up.
-
 Leda: I'm fine, just don't let them get the egg!
-
 Zeus: The egg?!?
-
 Asshole: Hey you, cripple lover! Whaddya say we put you in a wheelchair too?
 
 Oh, it is most definitely shape-shifting time.
+
+IMAGE right clear
 
 -> fight
 
 =fight
 
-
 * [Cloud]
+
+IMAGE middle clear
+IMAGE middle Cloud
 
 You assume your cloud form and proceed to engulf their leader.
 
@@ -1667,34 +2168,39 @@ You assume your cloud form and proceed to engulf their leader.
 
 * [Bull]
 
-You assume your bull form and stare down their leader, scraping your foot against the ground in that way that bulls always do in movies. 
+
+IMAGE middle clear
+IMAGE middle Bull
+
+
+You assume your bull form and stare down their leader, scraping your foot against the ground in that way bulls always do in movies. 
 
 Asshole: ...
-
 The leader of the group starts to back away, leaving the other two standing agog on the spot.
-
 Asshole: ...
-
 Bollocks to this. You charge at the two henchmen and sucessfuly gore the two of them with your horns. You raise your head and carry them while you continue running towards their leader, now sprinting for his life .
-
 Asshole: YAAAAAH!
-
-As you reach him you jump at him, knocking him over with your front legs and then landing on him. The sudden loss of momentum sends the two henchmen flying off your horns, clutching their now engorged wounds as they sail through the air. You step off the leader and the three of them scramble away nursing their wounds
-
+As you reach him you jump at him, knocking him over with your front legs and then landing on him. The sudden loss of momentum sends the two henchmen flying off your horns, clutching their now engorged wounds as they sail through the air. 
+You step off the leader and the three of them scramble away nursing their wounds
 ->fight_is_won
-
-
 
 
 * [Lightning] 
+
+IMAGE middle clear
+IMAGE middle Lightning
+
 -> fight_with_lightning
 
 
+* [Eagle] 
 
+IMAGE middle clear
+IMAGE middle Eagle
 
-* [Eagle] You assume the form of an eagle and fly towards their leader. You pick him up with your talons and carry him high into the air before dumping him into the river. His friends are visibly shaken but they hold their postion by the alcove, so you fly back and grab another one. By the time you've dropped the second one in the river the third has wisely decided to scarper
-
+You assume the form of an eagle and fly towards their leader. You pick him up with your talons and carry him high into the air before dumping him into the river. His friends are visibly shaken but they hold their postion by the alcove, so you fly back and grab another one. By the time you've dropped the second one in the river the third has wisely decided to scarper.
 ->fight_is_won
+
 
 
 
@@ -1703,23 +2209,38 @@ Asshole: What is this, some Penn and Teller shit? Come out and fight, or we migh
 
 * [Fuck this guy: Shapeshift into bull]
 
+IMAGE middle clear
+IMAGE middle Bull
+
 While still wrapped around him, you assume your bull form. You materialize inside him and immediately burst through his body, sending chunks of flesh in every direction. His friends run away screaming.
 
 -> fight_is_won
 
 
 * [Fuck this guy: Shapeshift into lightning]
+
+IMAGE middle clear
+IMAGE middle Lightning
+
 -> fight_with_lightning
 
 
+
+
 =fight_with_lightning
+
 This is too easy. You shapeshift into a bolt of lightning and proceed to electrocute the three of them. They collapse to the ground, smoke billowing from their bodies.
 ->fight_is_won
 
 
 =fight_is_won
 
+CLEAR all
+IMAGE left Zeus
+
 You revert to your human form and look for Leda.
+
+IMAGE middle Leda
 
 Leda: Over here!
 
@@ -1730,6 +2251,7 @@ Leda: I know, right? I don't know where the mother is, I just found it like this
 
 You sit next to Leda and together you watch the egg slowly hatch. When it's done four beautiful baby swans sit before you.
 
+
 Zeus: ...
 
 Leda: Aren't they amazing? 
@@ -1738,7 +2260,7 @@ Leda: I never thought I'd be a mother... wait, something's wrong.
 
 The baby swans are beginning to squawk and run around.
 
-Leda: I think they're fretting because their mother's not here. I don't know what to do.
+Leda: I think they're fretting because their mother's not here. I don't know what to do!
 Zeus: Don't worry. I think I can help.
 -> swan_time
 
@@ -1746,6 +2268,11 @@ Zeus: Don't worry. I think I can help.
 =swan_time
 
 * [Shapeshift into swan] 
+
+CLEAR all
+IMAGE left Leda
+IMAGE middle Swan
+
 You assume your swan form and walk up to the babies. They take to you immediately, nestling under your wing and quickly going to sleep. 
 
 Leda: I... I don't know what do say.
@@ -1757,11 +2284,16 @@ Swan: That would actually be awesome.
 
 Leda drops down from her wheelchair and shuffles over to you, and you both drift off to a peaceful sleep.
 
+
+
 Hera: ZEUS!
 Swan: Gah, for heaven's sa--
+
+IMAGE right Hera flip
+
 Hera: Oh, this is some messed up shit.
 Swan: It's not what it looks like.
-Hera: Zeus, you are going down, and not in the innuendo kind of way.
+Hera: Zeus, you are going down, and not in the sexy innuendo kind of way.
 Zeus: But we didn't do anything! How did you find me, anyway?
 Swan: When you didn't come home I asked around the university, and a bunch of people said they saw you joyriding around the Boat Club with Miss Wheels over there.
 Leda: *Yawn* ... What's going on.
@@ -1769,13 +2301,23 @@ Swan: Ahhh, Leda... this is my lovely wife Hera.
 Leda: Oh... nice to meet--
 Swan: Can it hussy! Is this your new angle, Zeus? You've slept with all the able-bodied women on campus so now you're working through the disabled ones?
 Swan: For the love of Hades, can we keep her paraplegia out of this?
-Swan: You can't keep your anything out of anything! And what's with this whole swan thing? Are you going to want me dressing up in a costume like Bjork?
+Swan: You can't keep your anything out of anything! And what's with this whole swan thing? Are you going to have me dressing up in a costume like Bjork?
+
+IMAGE middle flip
+
 Leda: Is she always like this?
 Swan: Oh, most definitely.
 Leda: I'm so sorry.
+
+IMAGE middle flip
+
 Hera: We're going straight back to Olympus now, mister. 
 
 Hera changes her form and does that annoying wispy thing she does up and out of the alcove. You change back to your human form.
+
+IMAGE right clear
+IMAGE middle clear
+IMAGE middle Zeus
 
 Zeus: Geez, I'm sorry about that.
 Leda: It's alright. I kind of figured you'd be married.
@@ -1789,6 +2331,11 @@ Zeus: Ah, it's complicated.
 Leda: It always is. Goodbye, Zeus.
 
 BACKGROUND olympus
+
+CLEAR all
+IMAGE middle Zeus
+IMAGE right Cygnet flip
+
 Hera: Zeus! Time to clean the toilets again, you unfaithful piece of horse sputum!
 Zeus: You know, Helen, I wish I was able to turn HER into a swan.
 Cygnet: Coo!
